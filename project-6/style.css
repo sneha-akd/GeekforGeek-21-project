@@ -76,13 +76,6 @@ body[data-mode="dark"] .card {
   font-weight: 600;
 }
 
-.section-nav button:hover,
-.section-nav button.active {
-  background: rgba(255, 0, 0, 0.1);
-  color: #ff2b2b;
-  border-color: rgba(255, 0, 0, 0.4);
-}
-
 .preview-toolbar .btn.active {
   background-color: #ff2b2b;
   color: #fff;
@@ -112,6 +105,18 @@ body[data-mode="dark"] .card {
 }
 
 /* SECTION NAVIGATION */
+.section-nav {
+  padding: 0 0.2rem 0 0.2rem;
+  transition: all 0.3s ease;
+}
+
+.section-nav:hover {
+  background: rgba(255, 255, 255, 1);
+  border-radius: 0 1.5rem 1.5rem 0;
+  padding: 0 1rem 0 1rem;
+  transition: all 0.3s ease;
+}
+
 .section-nav button {
   border-radius: 999px;
   border: 1px solid var(--resume-border);
@@ -139,6 +144,14 @@ body[data-mode="dark"] .card {
   content: "✓";
   font-size: 0.75rem;
   margin-left: 0.35rem;
+}
+
+.section-nav .section-btn-text {
+  display: none;
+}
+
+.section-nav:hover .section-btn-text {
+  display: inline-block;
 }
 
 /* PREVIEW AREA */

@@ -16,7 +16,7 @@ https://restfulapi.net/ -->
 
 <body class="bg-body-tertiary">
 
-  <main class="container py-4 page-shell">
+  <main class="container py-4 page-shell mx-5">
     <header class="frosted-header mb-4 rounded-4 p-4 p-lg-5 position-relative overflow-hidden">
       <div class="row align-items-center g-4">
         <div class="col-12 col-lg-7">
@@ -66,7 +66,7 @@ https://restfulapi.net/ -->
     </header>
 
     <div class="row g-4 align-items-stretch">
-      <section class="col-12 col-xl-4">
+      <section class="col-12 col-lg-4">
         <div class="card shadow-lg border-0 builder-panel sticky-xl-top rounded-4">
           <div class="card-body p-4">
             <div class="d-flex align-items-center justify-content-between mb-4">
@@ -79,7 +79,9 @@ https://restfulapi.net/ -->
               </button>
             </div>
 
-            <nav id="sectionNav" class="nav flex gap-2 mb-4 section-nav"></nav>
+            <nav id="sectionNav"
+              class="nav flex-column gap-2 mb-4 section-nav position-fixed bottom-50 start-0 z-3 py-3">
+            </nav>
 
             <div class="border rounded-4 p-3 bg-body">
               <small class="text-muted d-block mb-2">Template (fallback select)</small>
@@ -91,7 +93,7 @@ https://restfulapi.net/ -->
         </div>
       </section>
 
-      <section class="col-12 col-xl-8">
+      <section class="col-12 col-lg-8">
         <div class="card shadow-lg border-0 rounded-4 h-100 preview-shell">
           <div class="card-header bg-white border-0 p-4">
             <div class="d-flex flex-wrap align-items-center justify-content-between gap-3">

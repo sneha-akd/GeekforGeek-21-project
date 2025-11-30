@@ -583,7 +583,7 @@ function addSectionLink(section) {
   const button = document.createElement("button");
   button.type = "button";
   // button.textContent = section.title;
-  button.innerHTML = `${getIconForSection(section.id)} ${section.title}`
+  button.innerHTML = `${getIconForSection(section.id)} <span class="section-btn-text">${section.title}</span>`
   button.className = "col"
   button.addEventListener("click", () => {
     document.getElementById(section.id)?.scrollIntoView({
