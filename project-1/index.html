@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>21-days-project-1</title>
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- link for font awesome and poppins -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet" />
+</head>
+
+<body>
+  <!-- header start from  here -->
+  <header role="banner">
+    <div class="container">
+      <nav role="navigation" aria-label="main navigation">
+        <h1>ExploreWorld</h1>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#destinations">Destinations</a></li>
+          <li><a href="#packages">Packages</a></li>
+          <li><a href="#testimonials">Testimonials</a></li>
+          <li><a href="#booking">Book Now</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <!-- header ends from  here -->
+
+  <!-- hero section stars here -->
+  <section id="home" role="region" aria-label="home section">
+    <video class="bg-video" src="https://www.pexels.com/download/video/34716308/" autoplay loop muted
+      playsinline></video>
+    <div class="overlay"></div>
+    <div class="home-content container">
+      <h2>Discover Your Next Adventure</h2>
+      <p>
+        Explore breathtaking destinations around the world and create memories
+        that last a lifetime.
+      </p>
+      <a href="#packages" class="btn" aria-label="Packages">
+        Explore Packages
+      </a>
+    </div>
+  </section>
+  <!-- hero section end here -->
+  <!-- destinations section start -->
+
+  <section id="destinations" class="section" role="region" aria-label="destinations section">
+    <div class="container">
+      <h2 id="destinations-heading">Popular Destinations</h2>
+      <div class="destinations-grid">
+        <article class="destinations-card">
+          <img src="https://images.pexels.com/photos/2265876/pexels-photo-2265876.jpeg" alt="jaipur" />
+          <h3>Paris, France</h3>
+        </article>
+        <article class="destinations-card">
+          <img src="https://images.pexels.com/photos/1010657/pexels-photo-1010657.jpeg" alt="jaipur" />
+          <h3>London, United Kingdom</h3>
+        </article>
+        <article class="destinations-card">
+          <img src="https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?auto=format&fit=crop&w=800&q=80"
+            alt="jaipur" />
+          <h3>Bangkok, Thailand</h3>
+        </article>
+        <article class="destinations-card">
+          <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80"
+            alt="jaipur" />
+          <h3>New York City, USA</h3>
+        </article>
+      </div>
+    </div>
+  </section>
+  <!-- destinations section ends here -->
+  <!-- packages section starts from here -->
+
+  <section id="packages" class="section" role="region" aria-label="packages section">
+    <div class="container">
+      <h2 id="packages-heading">Our Packages</h2>
+      <div class="packages-grid" role="listitem">
+        <article class="package" role="listitem">
+          <img src="https://images.unsplash.com/photo-1526772662000-3f88f10405ff?auto=format&fit=crop&w=800&q=80"
+            alt="Europe scenic travel package" />
+          <h3>Europe Explorer</h3>
+          <p>10 Days | Starting from $1200</p>
+          <button aria-label="Book Europe Explorer package">Book Now</button>
+        </article>
+        <article class="package" role="listitem">
+          <img src="https://images.pexels.com/photos/2412606/pexels-photo-2412606.jpeg"
+            alt="Europe scenic travel package" />
+          <h3> Dubai Explorer</h3>
+          <p>10 Days | Starting from $1900</p>
+          <button aria-label="Book Europe Explorer package">Book Now</button>
+        </article>
+        <article class="package" role="listitem">
+          <img src="https://images.pexels.com/photos/3889855/pexels-photo-3889855.jpeg"
+            alt="Europe scenic travel package" />
+          <h3>Uk Explorer</h3>
+          <p>10 Days | Starting from $1220</p>
+          <button aria-label="Book Europe Explorer package">Book Now</button>
+        </article>
+        <article class="package" role="listitem">
+          <img src="https://images.pexels.com/photos/1268855/pexels-photo-1268855.jpeg"
+            alt="Europe scenic travel package" />
+          <h3>USA Explorer</h3>
+          <p>10 Days | Starting from $1400</p>
+          <button aria-label="Book Europe Explorer package">Book Now</button>
+        </article>
+      </div>
+    </div>
+  </section>
+  <!-- packages section ends  here -->
+  <!-- testimonials sections starts here -->
+  <section id="testimonials" class="section" role="region" aria-label="testimonials section">
+    <div class="container">
+      <h2 id="testimonials-heading">What Our Travelers Say</h2>
+      <div class="testimonials-grid" role="list">
+        <blockquote class="testimonial">
+          <i class="fa-solid fa-quote-left fa-2x"></i>
+          <p>
+            “ExploreWorld made our honeymoon unforgettable! Everything was
+            perfectly arranged.”
+          </p>
+          <h4>- Vikas Thakur</h4>
+        </blockquote>
+        <blockquote class="testimonial">
+          <i class="fa-solid fa-quote-left fa-2x"></i>
+          <p>
+            “ExploreWorld planned everything so beautifully. Our honeymoon couldn’t have been more magical!”
+          </p>
+          <h4>- Sneha Borkar</h4>
+        </blockquote>
+        <blockquote class="testimonial">
+          <i class="fa-solid fa-quote-left fa-2x"></i>
+          <p>
+            “If you want a memorable honeymoon, go with ExploreWorld—they exceeded all our expectations!”
+          </p>
+          <h4>- Neha Sharma</h4>
+        </blockquote>
+      </div>
+    </div>
+  </section>
+  <!-- testimonials sections ends here -->
+  <!-- form booking section starts -->
+  <section id="booking" role="form" aria-label="booking section">
+    <div class="container">
+      <h2 id="bookng-heading">Book Your Travel</h2>
+      <p id="booking-desc">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur,
+        et!
+      </p>
+
+      <form aria-label="booking-form" method="post">
+        <label for="fullname">Full Name</label>
+        <input type="text" name="fname" id="fullname" required placeholder="enter your full name" />
+        <label for="email address">Email Address</label>
+        <input type="text" name="fname" id="fullname" required placeholder="enter your full name" />
+        <label for="phonenumber">Phone Number</label>
+        <input type="text" name="fname" id="fullname" required placeholder="enter your full name" />
+
+        <label for="destination">Destinations</label>
+        <select name="destination id=" destination">
+          <option value="">Paris</option>
+          <option value="">Dubai</option>
+          <option value="">New York</option>
+          <option value="">Thailand</option>
+        </select>
+
+        <label for="message or feedback">Message or Feedback</label>
+        <!-- link for font awesome and poppins -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet" />
+        <textarea name="feedback" id="message" placeholder="enter your special requirement"></textarea>
+        <button type="submit">Book Now</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- home work -->
+  <!-- 1. make a good looking footer with same theme -->
+  <footer class="footer">
+    <div class="container footer-container">
+
+      <!-- About -->
+      <div class="footer-section">
+        <h3>About ExploreWorld</h3>
+        <p>
+          ExploreWorld helps you discover breathtaking destinations with curated
+          travel packages, expert travel guides, and unforgettable journeys.
+        </p>
+      </div>
+
+      <!-- Explore -->
+
+
+      <!-- Quick Links -->
+      <div class="footer-section">
+        <h3>Quick Links</h3>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#destinations">Destination</a></li>
+          <li><a href="#packages">Packages</a></li>
+          <li><a href="#testimonials">Testimonials</a></li>
+          <li><a href="#booking">Book Now</a></li>
+        </ul>
+      </div>
+
+      <!-- Contact -->
+      <div class="footer-section">
+        <h3>Contact Us</h3>
+        <p><i class="fa-solid fa-phone"></i> +91 7378895464 </p>
+        <p><i class="fa-solid fa-envelope"></i> support@exploreworld.com</p>
+        <p><i class="fa-solid fa-location-dot"></i> Mumbai, India</p>
+
+        <div class="social-icons">
+          <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="#"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#"><i class="fa-brands fa-twitter"></i></a>
+        </div>
+      </div>
+
+      <!-- Find Us (Map Section) -->
+      <div class="footer-section">
+        <h3>Find Us</h3>
+        <iframe title="ExploreWorld Office Location"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.019835235083!2d-122.41941538468187!3d37.77492977975932!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80858064d9d7b8a3%3A0x47fca1f7b3b9b0e!2sTravel%20Agency!5e0!3m2!1sen!2sin!4v1680000000000"
+          loading="lazy" allowfullscreen="" referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <p>© 2025 ExploreWorld. All Rights Reserved.</p>
+    </div>
+  </footer>
+</body>
+
+</html>
