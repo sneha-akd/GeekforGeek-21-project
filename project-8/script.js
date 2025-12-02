@@ -6,7 +6,7 @@ const squareBtn = document.getElementById("square");
 const rectBtn = document.getElementById("rect");
 const circleBtn = document.getElementById("circle");
 const triangleBtn = document.getElementById("triangle");
-const hexBtn = document.getElementById("hexagon");
+// const hexBtn = document.getElementById("hexagon");
 const cleanUpBtn = document.getElementById("cleanup");
 const downloadImageBtn = document.getElementById("downloadImage");
 
@@ -136,7 +136,7 @@ squareBtn.onclick = () => activateTool("square", squareBtn);
 rectBtn.onclick = () => activateTool("rect", rectBtn);
 circleBtn.onclick = () => activateTool("circle", circleBtn);
 triangleBtn.onclick = () => activateTool("triangle", triangleBtn);
-hexBtn.onclick = () => activateTool("hexagon", hexBtn);
+// hexBtn.onclick = () => activateTool("hexagon", hexBtn);
 
 cleanUpBtn.onclick = () => ctx.clearRect(0, 0, canvas.width, canvas.height);
 
