@@ -10,27 +10,46 @@
 
 <body>
   <h1 id="heading">Writing Board</h1>
+
   <div id="tools">
     <div class="colorInput">
-      <label for="strokeColor">Color</label>
-      <input id="strokeColor" type="color" value="#000000" />
+      <label>Stroke:</label>
+      <input type="color" id="strokeColor" value="#000000">
+      <label>Fill:</label>
+      <input type="color" id="fillColor" value="#ffffff">
     </div>
-    <div class="brushSizeInput">
-      <label for="brushSize">Brush</label>
-      <input id="brushSize" type="range" value="5" min="1" max="50" />
-    </div>
-    <button class="button activeBtn" id="pen">🖋️Pen</button>
-    <button class="button" id="eraser">🧼Eraser</button>
-    <button class="button" id="square">⬛️ Draw Square</button>
-    <button class="button" id="cleanup">🧹 Full Screen Cleanup</button>
-    <button class="button" id="downloadImage">⬇️ Download Image</button>
-    <button class="button" id="rect">▭ Draw Rectangle</button>
-    <button class="button" id="circle">⚪ Draw Circle</button>
-    <button class="button" id="triangle">🔺 Draw Triangle</button>
 
+    <div class="brushSizeInput">
+      <label>Brush Size:</label>
+      <input type="range" id="brushRange" min="1" max="50" value="5">
+      <span id="brushValue">5 px</span>
+    </div>
+
+    <button class="button activeBtn" id="pen">🖋️ Pen</button>
+    <button class="button" id="eraser">🧼 Eraser</button>
+
+    <select id="shapeSelect" class="button">
+      <option value="">More Shapes ▼</option>
+      <option value="ellipse">Ellipse</option>
+      <option value="pentagon">Pentagon</option>
+      <option value="hexagon">Hexagon</option>
+      <option value="parallelogram">Parallelogram</option>
+      <option value="rhombus">Rhombus</option>
+      <option value="square">⬛ Square</option>
+      <option value="rect">▭ Rectangle</option>
+      <option value="circle">⚪ Circle</option>
+      <option value="triangle">🔺 Triangle</option>
+    </select>
+
+    <button class="button" id="undo">↩ Undo</button>
+    <button class="button" id="redo">↪ Redo</button>
+    <button class="button" id="cleanup">🧹 Full Cleanup</button>
+    <button class="button" id="downloadImage">⬇ Download</button>
   </div>
-  <canvas id="canvas"></canvas>
+
+  <canvas id="canvas" width="1000" height="500"></canvas>
+
+  <script src="script.js"></script>
 </body>
-<script src="./script.js"></script>
 
 </html>

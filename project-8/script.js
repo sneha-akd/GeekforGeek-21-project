@@ -1,154 +1,210 @@
-const colorInput = document.getElementById("strokeColor");
-const brushSizeInput = document.getElementById("brushSize");
-const penBtn = document.getElementById("pen");
-const eraserBtn = document.getElementById("eraser");
-const squareBtn = document.getElementById("square");
-const rectBtn = document.getElementById("rect");
-const circleBtn = document.getElementById("circle");
-const triangleBtn = document.getElementById("triangle");
-// const hexBtn = document.getElementById("hexagon");
-const cleanUpBtn = document.getElementById("cleanup");
-const downloadImageBtn = document.getElementById("downloadImage");
+
 
 const canvas = document.getElementById("canvas");
-canvas.height = 400;
-canvas.width = 800;
+const ctx = canvas.getContext("2d", { willReadFrequently: true });
 
-const ctx = canvas.getContext("2d");
+const strokeColor = document.getElementById("strokeColor");
+const fillColor = document.getElementById("fillColor");
+const brushRange = document.getElementById("brushRange");
+const brushValueDisplay = document.getElementById("brushValue");
+const penBtn = document.getElementById("pen");
+const eraserBtn = document.getElementById("eraser");
+const shapeSelect = document.getElementById("shapeSelect");
+const undoBtn = document.getElementById("undo");
+const redoBtn = document.getElementById("redo");
+const cleanupBtn = document.getElementById("cleanup");
+const downloadBtn = document.getElementById("downloadImage");
 
 let currentTool = "pen";
-ctx.lineWidth = 5;
-ctx.lineCap = "round";
-ctx.strokeStyle = "#000000";
-
-let isdrawing = false;
+let isDrawing = false;
 let startX = 0;
 let startY = 0;
 
-function startDraw(e) {
-  isdrawing = true;
-  startX = e.offsetX;
-  startY = e.offsetY;
+let undoStack = [];
+let redoStack = [];
+let previewImg = null;
 
-  if (
-    currentTool === "rect" ||
-    currentTool === "circle" ||
-    currentTool === "triangle" ||
-    currentTool === "hexagon" ||
-    currentTool === "square"
-  ) {
-    return;
-  }
-
-  ctx.beginPath();
-  ctx.moveTo(startX, startY);
+function saveState() {
+  undoStack.push(ctx.getImageData(0, 0, canvas.width, canvas.height));
+  redoStack = [];
+  if (undoStack.length > 50) undoStack.shift();
 }
 
-function draw(e) {
-  if (!isdrawing) return;
-  if (
-    currentTool === "rect" ||
-    currentTool === "circle" ||
-    currentTool === "triangle" ||
-    currentTool === "hexagon" ||
-    currentTool === "square"
-  )
-    return;
+penBtn.onclick = () => { currentTool = "pen"; activate(penBtn); }
+eraserBtn.onclick = () => { currentTool = "eraser"; activate(eraserBtn); }
+shapeSelect.onchange = () => { currentTool = shapeSelect.value || "pen"; activate(shapeSelect); }
 
-  ctx.strokeStyle = currentTool === "eraser" ? "#ffffff" : colorInput.value;
-  ctx.lineWidth = brushSizeInput.value;
+brushRange.oninput = () => { brushValueDisplay.textContent = brushRange.value + " px"; }
 
-  ctx.lineTo(e.offsetX, e.offsetY);
-  ctx.stroke();
-  ctx.beginPath();
-  ctx.moveTo(e.offsetX, e.offsetY);
+undoBtn.onclick = () => {
+  if (!undoStack.length) return;
+  redoStack.push(ctx.getImageData(0, 0, canvas.width, canvas.height));
+  const img = undoStack.pop();
+  ctx.putImageData(img, 0, 0);
 }
 
-function stopDraw(e) {
-  if (!isdrawing) return;
-
-  let endX = e.offsetX;
-  let endY = e.offsetY;
-  let width = endX - startX;
-  let height = endY - startY;
-
-  ctx.strokeStyle = colorInput.value;
-  ctx.lineWidth = brushSizeInput.value;
-
-  // SQUARE
-  if (currentTool === "square") {
-    let side = Math.min(Math.abs(width), Math.abs(height));
-    ctx.strokeRect(startX, startY, width < 0 ? -side : side, height < 0 ? -side : side);
-  }
-
-  // RECTANGLE
-  if (currentTool === "rect") {
-    ctx.strokeRect(startX, startY, width, height);
-  }
-
-  // CIRCLE
-  if (currentTool === "circle") {
-    let radius = Math.sqrt(width * width + height * height);
-    ctx.beginPath();
-    ctx.arc(startX, startY, radius, 0, Math.PI * 2);
-    ctx.stroke();
-  }
-
-  // TRIANGLE
-  if (currentTool === "triangle") {
-    ctx.beginPath();
-    ctx.moveTo(startX, startY);
-    ctx.lineTo(endX, endY);
-    ctx.lineTo(startX - (endX - startX), endY);
-    ctx.closePath();
-    ctx.stroke();
-  }
-
-  // HEXAGON
-  if (currentTool === "hexagon") {
-    let radius = Math.sqrt(width * width + height * height);
-    ctx.beginPath();
-    for (let i = 0; i < 6; i++) {
-      let angle = (Math.PI / 3) * i;
-      let x = startX + radius * Math.cos(angle);
-      let y = startY + radius * Math.sin(angle);
-      if (i === 0) ctx.moveTo(x, y);
-      else ctx.lineTo(x, y);
-    }
-    ctx.closePath();
-    ctx.stroke();
-  }
-
-  isdrawing = false;
+redoBtn.onclick = () => {
+  if (!redoStack.length) return;
+  undoStack.push(ctx.getImageData(0, 0, canvas.width, canvas.height));
+  const img = redoStack.pop();
+  ctx.putImageData(img, 0, 0);
 }
 
-/* ---------------- BUTTON EVENTS ---------------- */
+cleanupBtn.onclick = () => {
+  saveState();
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+}
 
-function activateTool(tool, btn) {
-  currentTool = tool;
+downloadBtn.onclick = () => {
+  const link = document.createElement("a");
+  link.href = canvas.toDataURL();
+  link.download = "Drawing.png";
+  link.click();
+}
+
+function activate(btn) {
   document.querySelectorAll(".activeBtn").forEach(b => b.classList.remove("activeBtn"));
   btn.classList.add("activeBtn");
 }
 
-penBtn.onclick = () => activateTool("pen", penBtn);
-eraserBtn.onclick = () => activateTool("eraser", eraserBtn);
-squareBtn.onclick = () => activateTool("square", squareBtn);
-rectBtn.onclick = () => activateTool("rect", rectBtn);
-circleBtn.onclick = () => activateTool("circle", circleBtn);
-triangleBtn.onclick = () => activateTool("triangle", triangleBtn);
-// hexBtn.onclick = () => activateTool("hexagon", hexBtn);
+// MOUSE EVENTS
+canvas.addEventListener("mousedown", (e) => {
+  isDrawing = true;
+  const rect = canvas.getBoundingClientRect();
+  startX = e.clientX - rect.left;
+  startY = e.clientY - rect.top;
+  if (currentTool === "pen" || currentTool === "eraser") {
+    saveState();
+    ctx.beginPath();
+    ctx.moveTo(startX, startY);
+  } else {
+    previewImg = ctx.getImageData(0, 0, canvas.width, canvas.height);
+  }
+});
 
-cleanUpBtn.onclick = () => ctx.clearRect(0, 0, canvas.width, canvas.height);
+canvas.addEventListener("mousemove", (e) => {
+  if (!isDrawing) return;
+  const rect = canvas.getBoundingClientRect();
+  const x = e.clientX - rect.left;
+  const y = e.clientY - rect.top;
 
-downloadImageBtn.onclick = () => {
-  const link = canvas.toDataURL("image/png");
-  const a = document.createElement("a");
-  a.href = link;
-  a.download = "Drawing.png";
-  a.click();
-};
+  if (currentTool === "pen" || currentTool === "eraser") {
+    ctx.lineWidth = brushRange.value;
+    ctx.lineCap = "round";
+    ctx.lineJoin = "round";
+    ctx.strokeStyle = currentTool === "eraser" ? "#ffffff" : strokeColor.value;
+    ctx.lineTo(x, y);
+    ctx.stroke();
+    return;
+  }
 
-canvas.addEventListener("mousedown", startDraw);
-canvas.addEventListener("mousemove", draw);
-canvas.addEventListener("mouseup", stopDraw);
-canvas.addEventListener("mouseleave", stopDraw);
+  // Shapes preview
+  if (previewImg) ctx.putImageData(previewImg, 0, 0);
+  drawShape(ctx, currentTool, startX, startY, x, y, true);
+});
+
+canvas.addEventListener("mouseup", finishDraw);
+canvas.addEventListener("mouseleave", finishDraw);
+
+function finishDraw(e) {
+  if (!isDrawing) return;
+  isDrawing = false;
+  const rect = canvas.getBoundingClientRect();
+  const x = e.clientX - rect.left;
+  const y = e.clientY - rect.top;
+  if (currentTool !== "pen" && currentTool !== "eraser") {
+    saveState();
+    drawShape(ctx, currentTool, startX, startY, x, y, false);
+  }
+}
+function parseColor(color, alpha = 1) {
+  // If already in rgba, keep alpha and override
+  if (color.startsWith("rgba")) {
+    // Extract original r,g,b
+    const parts = color.match(/rgba\((\d+),\s*(\d+),\s*(\d+),\s*([\d.]+)\)/);
+    if (!parts) return color;
+    const r = parts[1], g = parts[2], b = parts[3];
+    return `rgba(${r},${g},${b},${alpha})`;
+  }
+
+  // If hex (#RGB or #RRGGBB)
+  color = color.replace("#", "");
+  if (color.length === 3) color = color.split("").map(h => h + h).join("");
+  const r = parseInt(color.slice(0, 2), 16);
+  const g = parseInt(color.slice(2, 4), 16);
+  const b = parseInt(color.slice(4, 6), 16);
+  return `rgba(${r},${g},${b},${alpha})`;
+}
+
+
+// SHAPE DRAWING
+function drawShape(ctx, tool, x1, y1, x2, y2, isPreview) {
+  const w = x2 - x1;
+  const h = y2 - y1;
+
+  ctx.beginPath();
+  switch (tool) {
+    case "rect": ctx.rect(x1, y1, w, h); break;
+    case "square":
+      let s = Math.min(Math.abs(w), Math.abs(h));
+      ctx.rect(x1, y1, w < 0 ? -s : s, h < 0 ? -s : s);
+      break;
+    case "circle":
+      const radius = Math.sqrt(w * w + h * h);
+      ctx.arc(x1, y1, radius, 0, Math.PI * 2);
+      break;
+    case "ellipse":
+      ctx.ellipse(x1, y1, Math.abs(w), Math.abs(h), 0, 0, Math.PI * 2);
+      break;
+    case "triangle":
+      ctx.moveTo(x1, y1);
+      ctx.lineTo(x2, y2);
+      ctx.lineTo(x1 - (x2 - x1), y2);
+      ctx.closePath();
+      break;
+    case "pentagon": drawPolygon(ctx, x1, y1, x2, y2, 5); return;
+    case "hexagon": drawPolygon(ctx, x1, y1, x2, y2, 6); return;
+    case "parallelogram":
+      ctx.moveTo(x1, y1);
+      ctx.lineTo(x2 + 50, y1);
+      ctx.lineTo(x2, y2);
+      ctx.lineTo(x1 - 50, y2);
+      ctx.closePath();
+      break;
+    case "rhombus":
+      ctx.moveTo(x1, y1 - h);
+      ctx.lineTo(x1 + w, y1);
+      ctx.lineTo(x1, y1 + h);
+      ctx.lineTo(x1 - w, y1);
+      ctx.closePath();
+      break;
+  }
+
+  // Fill semi-transparent, stroke fully visible
+  ctx.fillStyle = parseColor(fillColor.value, 0.5);
+  ctx.strokeStyle = parseColor(strokeColor.value, 1);
+  ctx.lineWidth = brushRange.value;
+  ctx.fill();
+  ctx.stroke();
+}
+
+// POLYGON DRAWING
+function drawPolygon(ctx, x1, y1, x2, y2, sides) {
+  const r = Math.sqrt((x2 - x1) ** 2 + (y2 - y1) ** 2);
+
+  ctx.beginPath();
+  for (let i = 0; i < sides; i++) {
+    const angle = i * 2 * Math.PI / sides - Math.PI / 2;
+    const px = x1 + r * Math.cos(angle);
+    const py = y1 + r * Math.sin(angle);
+    i === 0 ? ctx.moveTo(px, py) : ctx.lineTo(px, py);
+  }
+  ctx.closePath();
+
+  ctx.fillStyle = parseColor(fillColor.value, 0.5); // semi-transparent fill
+  ctx.strokeStyle = parseColor(strokeColor.value, 1); // solid stroke
+  ctx.lineWidth = brushRange.value;
+  ctx.fill();
+  ctx.stroke();
+}
+
