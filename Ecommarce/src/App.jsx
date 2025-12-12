@@ -5,8 +5,10 @@ import { Routes, Route } from "react-router-dom";
 import Cart from "../Screen/Cart";
 
 const App = () => {
+  const mode = process.env.NODE_ENV;
+
   return (
-    <Routes>
+    <Routes basename={mode === "development" ? "/" : "/GeekforGeek-21-project/Ecommarce/dist"}>
       <Route path="/" element={<Home />} />
       <Route path="/products/:productId" element={<Pdp />} />
       <Route path="/cart" element={<Cart />} />
