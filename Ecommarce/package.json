@@ -3,6 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "homepage": "https://sneha-akd.github.io/GeekforGeek-21-project/Ecommarce/dist/",
   "scripts": {
     "dev": "vite",
     "build": "vite build",

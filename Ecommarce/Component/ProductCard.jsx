@@ -2,6 +2,7 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router";
 import { setCartProducts, removeCartProduct } from "../src/ProductSlice";
+import { basename } from "../src/Store";
 
 const ProductCard = ({ productData }) => {
   const dispatch = useDispatch();
@@ -28,7 +29,7 @@ const ProductCard = ({ productData }) => {
   }
 
   function handlePdpNavigation() {
-    navigate(`/products/${id}`);
+    navigate(`${basename}/products/${id}`);
   }
 
   return (
