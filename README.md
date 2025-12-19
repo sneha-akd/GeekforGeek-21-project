@@ -8,6 +8,6 @@
 - Project 6: A simple [Resume Builder](https://sneha-akd.github.io/GeekforGeek-21-project/project-6), which helps anyone to quickly get a basic template pdf done, further showing my expertise in **_vanilla JS_**
 - Project 7: Stay up-to-date with your pending actions with [Task Mate](https://sneha-akd.github.io/GeekforGeek-21-project/project-7), a more complex UI responsive functionality built with **_vanilla JS_**
 - Project 8: Want Paint like web-app? use [Draw Board](https://sneha-akd.github.io/GeekforGeek-21-project/project-8) and draw your dreams on **_Canvas_**
-- Project 9: [Nova Edge Ecommerce](https://sneha-akd.github.io/GeekforGeek-21-project/Ecommarce/dist) UI only. Flexing my React skills alongside Redux store usage.
+- Project 9: [Nova Edge Ecommerce](https://ecommerce-alpha-rust-91.vercel.app/) UI only. Flexing my React skills alongside Redux store usage.
 - Project 10: [Photon Lab]() UI only light weight photo editor.
 - Project 11: [Dragify]() Use React to sample out drag n drop functionality

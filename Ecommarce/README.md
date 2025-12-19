@@ -1,3 +1,7 @@
+# Deployed
+
+Project 9: [Nova Edge Ecommerce](https://ecommerce-alpha-rust-91.vercel.app/) UI only. Flexing my React skills alongside Redux store usage.
+
 # React + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
