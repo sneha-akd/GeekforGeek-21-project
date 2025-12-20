@@ -27,9 +27,12 @@ body {
 }
 .controls {
   height: 100%;
+  /* width: 30rem; */
   width: 40%;
-
+border-right: 2px solid #fcfbffd0; 
   padding: 16px;
+  
+   background-color: #fff4f6;
 }
 .canvasContainer {
   height: 100%;
@@ -38,7 +41,13 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+
+ background: linear-gradient(135deg, #ff6a6a, #ff1e56);
+
+
+  border-left: 2px solid #fbbf77;
 }
+
 
 #canvas {
   max-width: 95%;
@@ -98,3 +107,65 @@ body {
   border-radius: 4px;
   width: 100%;
 }
+/* LIGHT BACKGROUND COLORS */
+
+
+
+
+/* TEXT COLOR (for light background) */
+.heading,
+.feature-label {
+  color: #111827;
+}
+
+/* BUTTON BASE */
+.btn {
+  background-color: #6366f1; /* soft blue */
+  color: white;
+  border-radius: 6px;
+  font-weight: 600;
+}
+
+/* INDIVIDUAL BUTTON COLORS */
+#grayscale-btn {
+  background-color: #64748b; /* slate gray */
+}
+
+#sepia-btn {
+  background-color: #22c55e; /* green */
+}
+
+#reset-btn {
+  background-color: #ef4444; /* red */
+}
+
+/* DOWNLOAD BUTTON */
+.downloadImgBtn {
+  background-color: #f59e0b; /* orange */
+  color: #ffffff;
+  font-weight: 700;
+  border-radius: 6px;
+}
+
+/* SIMPLE HOVER EFFECT */
+.btn:hover,
+.downloadImgBtn:hover {
+  opacity: 0.85;
+  cursor: pointer;
+}
+.canvasContainer {
+  position: relative;
+}
+
+
+#canvasMessage {
+  position: absolute;
+  color: #9a3412;
+  font-size: 1rem;
+  font-weight: bold;
+  opacity: 0.8;
+}
+
+
+
+

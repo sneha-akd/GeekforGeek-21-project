@@ -10,41 +10,55 @@
 
 <body>
   <div class="container">
+
     <div class="controls">
       <p class="heading">Photon Lab</p>
+
       <div class="inputContainer">
         <input id="fileInput" type="file" />
       </div>
+
       <div class="feature-container">
-        <label class="feature-label" for="brightness">Brightness</label>
-        <input class="feature-input" type="range" name="" id="brightness-input" min="0" max="200" value="100" />
+        <label class="feature-label">Brightness</label>
+        <input class="feature-input" type="range" id="brightness-input" min="0" max="200" value="100" />
       </div>
+
       <div class="feature-container">
-        <label class="feature-label" for="contrast">Contrast</label>
-        <input class="feature-input" type="range" name="" id="contrast-input" min="0" max="200" value="100" />
+        <label class="feature-label">Contrast</label>
+        <input class="feature-input" type="range" id="contrast-input" min="0" max="200" value="100" />
       </div>
+
       <div class="feature-container">
-        <label class="feature-label" for="saturation">Saturation</label>
-        <input class="feature-input" type="range" name="" id="saturation-input" min="0" max="200" value="100" />
+        <label class="feature-label">Saturation</label>
+        <input class="feature-input" type="range" id="saturation-input" min="0" max="200" value="100" />
       </div>
+
       <div class="feature-container">
-        <label class="feature-label" for="blur">Blur</label>
-        <input class="feature-input" type="range" name="" id="blur-input" min="0" max="200" value="0" />
+        <label class="feature-label">Blur</label>
+        <input class="feature-input" type="range" id="blur-input" min="0" max="200" value="0" />
       </div>
+
       <div class="buttonsContainer">
-        <button id="grayscale-btn" class="btn">GrayScale</button>
+        <button id="grayscale-btn" class="btn">Grayscale</button>
         <button id="sepia-btn" class="btn">Sepia</button>
         <button id="reset-btn" class="btn">Reset</button>
       </div>
+
       <div class="downalodImageContainer">
         <button class="downloadImgBtn">Download Image</button>
       </div>
     </div>
-    <div class="canvasContainer">
+
+    <div class="canvasContainer" id="canvasContainer">
+      <p id="canvasMessage">🖼️ choose an image</p>
       <canvas id="canvas"></canvas>
+      <input type="file" id="fileInput" style="display:none" />
     </div>
+
+
   </div>
+
+  <script src="script.js"></script>
 </body>
-<script src="script.js"></script>
 
 </html>
