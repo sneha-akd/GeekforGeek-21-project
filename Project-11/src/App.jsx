@@ -22,7 +22,9 @@ const App = () => {
       { id: "sun_04", title: "Go out" },
     ],
   };
+
   return <DragAndDrop data={taskData} />;
+
 };
 
 export default App;
