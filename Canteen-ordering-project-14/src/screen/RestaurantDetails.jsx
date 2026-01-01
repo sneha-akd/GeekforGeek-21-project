@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { Link, useParams } from "react-router-dom";
 import { useGetResaturantData } from "../Hooks";
 import { addItemsInCart } from "../Store/app";
+import MyNav from "../components/MyNav";
 
 // Dummy image array for menu items
 const dummyImage = [
@@ -22,15 +23,13 @@ const RestaurantDetailas = () => {
   const restaurantData = allRestaurantData.find((data) => data.id === id);
 
   // Fallback image for restaurant header
-  const [imageUri, setImageUri] = useState(restaurantData?.image_url ?? "");
+  const [imageUri, setImageUri] = useState(restaurantData?.image_url ?? "unknown");
 
   function handleImageError() {
     const idx = Math.floor(Math.random() * dummyImage.length);
     setImageUri(dummyImage[idx]);
     console.log("Image failed to load, switching to dummy image...");
   }
-
-
 
   function handleClick(itemId) {
     dispatch(addItemsInCart({ resId: id, item_id: itemId }));
@@ -48,22 +47,7 @@ const RestaurantDetailas = () => {
   return (
     <div className="min-h-screen bg-white relative">
       {/* Navbar */}
-      <nav className="w-full bg-white shadow-md sticky top-0 z-10">
-        <div className="max-w-6xl mx-auto px-5 py-4 flex justify-between items-center">
-          <Link to="/">
-            <h1 className="text-2xl font-bold text-orange-500 tracking-wide">
-              🍽️ Canteen
-            </h1>
-          </Link>
-
-          <Link
-            to="/cart"
-            className="bg-orange-500 hover:bg-orange-600 text-white px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300"
-          >
-            Cart
-          </Link>
-        </div>
-      </nav>
+      <MyNav></MyNav>
 
       {/* Restaurant Header */}
       <div className="max-w-6xl mx-auto mt-6 bg-white rounded-xl shadow-md overflow-hidden relative z-10">

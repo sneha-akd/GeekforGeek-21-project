@@ -3,6 +3,7 @@ import { useGetResaturantData } from "../Hooks";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import RestaurantCard from "../components/RestaurantCard";
+import MyNav from "../components/MyNav";
 
 const Home = () => {
   useGetResaturantData();
@@ -11,20 +12,7 @@ const Home = () => {
   return (
     <div className="min-h-screen bg-gray-100">
       {/* Navbar */}
-      <nav className="w-full bg-white shadow-md sticky top-0 z-10">
-        <div className="max-w-6xl mx-auto px-5 py-4 flex justify-between items-center">
-          <h1 className="text-2xl font-bold text-orange-500 tracking-wide">
-            🍽️ Canteen
-          </h1>
-
-          <Link
-            to="/cart"
-            className="bg-orange-500 hover:bg-orange-600 text-white px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300"
-          >
-            Cart
-          </Link>
-        </div>
-      </nav>
+      <MyNav></MyNav>
 
       {/* Content */}
       <div className="max-w-6xl mx-auto px-5 py-8">

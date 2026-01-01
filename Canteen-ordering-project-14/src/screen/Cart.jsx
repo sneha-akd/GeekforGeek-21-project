@@ -2,6 +2,7 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { addItemsInCart, deleteItemsInCart } from "../Store/app";
+import MyNav from "../components/MyNav";
 
 const Cart = () => {
   const dispatch = useDispatch();
@@ -26,19 +27,7 @@ const Cart = () => {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Navbar */}
-      <nav className="w-full bg-white shadow-md sticky top-0 z-10">
-        <div className="max-w-6xl mx-auto px-5 py-4 flex justify-between items-center">
-          <Link to="/">
-            <h1 className="text-2xl font-bold text-orange-500 tracking-wide">
-              🍽️ Canteen
-            </h1>
-          </Link>
-
-          <p className="text-gray-700 font-medium">
-            Cart ({cartData?.length || 0})
-          </p>
-        </div>
-      </nav>
+      <MyNav></MyNav>
 
       <div className="max-w-6xl mx-auto px-4 py-6 grid grid-cols-1 lg:grid-cols-3 gap-6">
         {/* LEFT SECTION */}
@@ -99,7 +88,7 @@ const Cart = () => {
                     >
                       <div className="flex gap-3">
                         <img
-                          src={item.image}
+                          src={item.image_url}
                           className="w-16 h-16 rounded-lg object-cover"
                           alt=""
                         />
