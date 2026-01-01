@@ -1,5 +1,5 @@
 import React from "react";
-import { useGetResaturantData } from "../Hook";
+import { useGetResaturantData } from "../Hooks";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import RestaurantCard from "../components/RestaurantCard";

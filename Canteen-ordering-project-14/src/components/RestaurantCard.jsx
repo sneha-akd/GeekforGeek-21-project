@@ -1,6 +1,7 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
-const dummyImage = [
+export const dummyImage = [
   "https://images.unsplash.com/photo-1498654896293-37aacf113fd9?w=800",
   "https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=800",
   "https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=800",
@@ -14,7 +15,7 @@ const dummyImage = [
 ];
 
 const RestaurantCard = ({ data }) => {
-  const { name, rating, cuisine, address, image_url } = data || {};
+  const { id, name, rating, cuisine, address, image_url } = data || {};
   const [image, setImage] = useState(image_url);
 
   function handleError() {
@@ -23,33 +24,37 @@ const RestaurantCard = ({ data }) => {
   }
 
   return (
-    <div className="w-full max-w-sm bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 cursor-pointer overflow-hidden border border-gray-200">
+    <div className="w-full max-w-sm bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 cursor-pointer overflow-hidden border border-gray-200 relative">
+      {/* Colorful Background Animation */}
+      <div className="absolute inset-0 bg-gradient-to-r from-pink-500 via-yellow-500 to-blue-500 animate-gradient-bg z-0"></div>
+
       {/* Restaurant Image */}
-      <div className="relative h-48 w-full">
+      <div className="relative h-48 w-full z-10">
         <img
           onError={handleError}
           src={image}
           alt={name}
           className="w-full h-full object-cover"
         />
-        <span className="absolute top-3 left-3 bg-black bg-opacity-70 text-white text-xs px-3 py-1 rounded-full">
+        <span className="absolute top-3 left-3 bg-black bg-opacity-70 text-white text-xs px-3 py-1 rounded-full z-10">
           {cuisine}
         </span>
-        <span className="absolute bottom-3 right-3 bg-green-600 text-white text-xs px-3 py-1 rounded-full">
+        <span className="absolute bottom-3 right-3 bg-green-600 text-white text-xs px-3 py-1 rounded-full z-10">
           ⭐ {rating}
         </span>
       </div>
 
       {/* Details */}
-      <div className="p-4 space-y-2">
+      <div className="p-4 space-y-2 z-10 relative">
         <h2 className="text-lg font-semibold text-gray-900 truncate">{name}</h2>
         <p className="text-sm text-gray-600 leading-tight line-clamp-2">
           {address}
         </p>
-
-        <button className="w-full mt-3 bg-orange-500 hover:bg-orange-600 text-white text-sm font-medium py-2 rounded-lg transition-all duration-300">
-          View Menu
-        </button>
+        <Link to={`/restaurant/${id}`}>
+          <button className="w-full mt-3 bg-orange-500 hover:bg-orange-600 text-white text-sm font-medium py-2 rounded-lg transition-all duration-300">
+            View Menu
+          </button>
+        </Link>
       </div>
     </div>
   );
