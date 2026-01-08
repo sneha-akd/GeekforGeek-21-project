@@ -1,3 +1,5 @@
+Project link update - [Greeks-Cart](https://greeks-cart.vercel.app/)
+
 # React + Vite
 
 https://mocki.io/v1/be0822f2-200f-41ea-b333-aa465c3bb8e7
