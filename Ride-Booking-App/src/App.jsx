@@ -4,6 +4,7 @@ import { Routes, Route } from "react-router-dom";
 import Home from "./Screen/Home";
 import Book from "./Screen/Book";
 import History from "./Screen/History";
+import { ControlledInput, PartialControlledDisplayInput, PartialControlledInput, UncontrolledInput } from "./Component/TestInput";
 
 function App() {
   return (

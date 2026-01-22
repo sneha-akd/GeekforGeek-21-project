@@ -5,12 +5,15 @@ import { Home, Dumbbell, Briefcase, MapPin, Star, Clock, Navigation } from "luci
 import { useState } from "react";
 import { setDestination } from "../../Store/app";
 import { setPickupLocation } from "../../Store/app";
+import { useNavigate } from 'react-router-dom';
 
 function Pickup() {
   const savedPlaces = useSelector((state) => state.app.savedPlaces);
   const { rating, rides, saved } = useSelector((state) => state.app.userStats)
   const bookingData = useSelector((state) => state.app.bookingData);
   const dispatch = useDispatch();
+  const navigate = useNavigate()
+
 
 
   const iconMap = {
@@ -20,9 +23,14 @@ function Pickup() {
     saved: MapPin,
   };
 
-  function selectpickup(e) {
-    dispatch(setPickupLocation(e.target.value))
 
+  function handleChangePickup(e) {
+    dispatch(setPickupLocation(e.target.value))
+    // console.log(pickup);
+  }
+
+  function handlechangedest(e) {
+    dispatch(setDestination(e.target.value))
   }
 
   return (
@@ -36,7 +44,8 @@ function Pickup() {
           <div className="relative">
             <Navigation size={20} className="absolute left-3 top-1/2 -translate-y-1/2 text-green-600 text-lg" />
             <input
-
+              onChange={handleChangePickup}
+              value={bookingData?.selectpickup}
               type="text"
               placeholder="Enter pickup location"
               className="w-full rounded-lg border border-gray-300 pl-10 pr-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-green-500"
@@ -47,6 +56,7 @@ function Pickup() {
             <MapPin size={20} className="absolute left-3 top-1/2 -translate-y-1/2 text-red-500 text-lg" />
             <input
               type="text"
+              onChange={handlechangedest}
               value={bookingData?.selectedDestination}
               placeholder="Enter destination"
               className="w-full rounded-lg border border-gray-300 pl-10 pr-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-green-500"
@@ -79,7 +89,9 @@ function Pickup() {
           })}
         </div>
 
-        <button className="border">Search Rides</button>
+        <button onClick={() => {
+          navigate('/book');
+        }} className="border">Search Rides</button>
       </div>
 
 

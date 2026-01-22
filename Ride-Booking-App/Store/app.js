@@ -11,7 +11,9 @@ const initialState = {
   bookingData: {
     selectedDestination: "",
     pickupLocation: "",
+    distance: 0,
   },
+  vehiclePrices: [],
   userStats: { rating: 4.8, rides: 47, saved: 2.5 },
   userData: {
     name: "Sneha Borkar",
@@ -66,11 +68,15 @@ export const appSlice = createSlice({
     },
 
     setDestination: (state, action) => {
+      console.log("setting destination location", action.payload)
       state.bookingData.selectedDestination = action.payload;
     },
     setPickupLocation: (state, action) => {
-      // console.log("setting pickup location", action.payload)
+      console.log("setting pickup location", action.payload)
       state.bookingData.pickupLocation = action.payload;
+    },
+    setVehiclePrices: (state, action) => {
+      state.vehiclePrices = action.payload;
     },
 
   },
@@ -84,7 +90,8 @@ export const {
   updateProfileData,
   deleteSavedPlaces,
   setDestination,
-  setPickupLocation
+  setPickupLocation,
+  setVehiclePrices
 } = appSlice.actions;
 
 export default appSlice.reducer;
