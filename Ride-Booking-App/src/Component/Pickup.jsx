@@ -91,7 +91,7 @@ function Pickup() {
 
         <button onClick={() => {
           navigate('/book');
-        }} className="border">Search Rides</button>
+        }} className=" p-2 rounded-lg shadow-md hover:bg-green-700 w-full bg-green-600">Search Rides</button>
       </div>
 
 
