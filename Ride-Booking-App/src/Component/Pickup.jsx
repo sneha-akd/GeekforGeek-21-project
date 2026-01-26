@@ -2,8 +2,8 @@
 
 import { useDispatch, useSelector } from "react-redux";
 import { Home, Dumbbell, Briefcase, MapPin, Star, Clock, Navigation } from "lucide-react";
-import { useState } from "react";
-import { setDestination } from "../../Store/app";
+import { useEffect } from "react";
+import { clearBookingData, setDestination } from "../../Store/app";
 import { setPickupLocation } from "../../Store/app";
 import { useNavigate } from 'react-router-dom';
 
@@ -32,6 +32,11 @@ function Pickup() {
   function handlechangedest(e) {
     dispatch(setDestination(e.target.value))
   }
+
+  // clear booking data on component reload
+  useEffect(() => {
+    dispatch(clearBookingData());
+  }, []);
 
   return (
     <>

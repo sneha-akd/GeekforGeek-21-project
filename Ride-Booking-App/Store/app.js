@@ -13,7 +13,8 @@ const initialState = {
     pickupLocation: "",
     distance: 0,
     selectedVehicle: null,
-    paymentMode: null,
+    paymentMode: "wallet",
+    time: 0,
   },
   vehiclePrices: [],
   userStats: { rating: 4.8, rides: 47, saved: 2.5 },
@@ -24,9 +25,17 @@ const initialState = {
     walletBalance: 0,
   },
 
+  history: {
+
+  }
 };
 
-
+const getDistanceTime = () => {
+  const km = (Math.random() * 14 + 1).toFixed(2);
+  const speed = Math.floor(Math.random() * 60) + 20;  // kmph
+  const minutes = Math.round((km / speed) * 60);  // min
+  return { distance: km, time: minutes }
+}
 
 export const appSlice = createSlice({
   name: "app",
@@ -68,14 +77,25 @@ export const appSlice = createSlice({
       );
       state.savedPlaces = filteredPlaces;
     },
-
     setDestination: (state, action) => {
       console.log("setting destination location", action.payload)
       state.bookingData.selectedDestination = action.payload;
+
+      if (state.bookingData.pickupLocation && state.bookingData.pickupLocation.length > 0) {
+        const { distance, time } = getDistanceTime()
+        state.bookingData.distance = distance;
+        state.bookingData.time = time;
+      }
     },
     setPickupLocation: (state, action) => {
       console.log("setting pickup location", action.payload)
       state.bookingData.pickupLocation = action.payload;
+
+      if (state.bookingData.selectedDestination && state.bookingData.selectedDestination.length > 0) {
+        const { distance, time } = getDistanceTime()
+        state.bookingData.distance = distance;
+        state.bookingData.time = time;
+      }
     },
     setVehiclePrices: (state, action) => {
       state.vehiclePrices = action.payload;
@@ -86,6 +106,15 @@ export const appSlice = createSlice({
     setPaymentMode: (state, action) => {
       state.bookingData.paymentMode = action.payload;
     },
+    clearBookingData: (state, _action) => {
+      state.bookingData = { ...initialState.bookingData };
+    },
+    finishRide: (state, _action) => {
+      state.bookingData = { ...initialState.bookingData };
+    },
+    cancelRide: (state, action) => {
+      state.bookingData = { ...initialState.bookingData };
+    }
   },
 });
 
@@ -100,7 +129,10 @@ export const {
   setPickupLocation,
   setVehiclePrices,
   setSelectedVehicle,
-  setPaymentMode
+  setPaymentMode,
+  clearBookingData,
+  finishRide,
+  cancelRide
 } = appSlice.actions;
 
 export default appSlice.reducer;

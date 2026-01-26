@@ -1,66 +1,21 @@
 
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState, useRef } from "react";
 import Vehicles from "../Component/Vehicles";
 import Payment from "../Component/Payment";
+import { useNavigate } from "react-router-dom";
 
 function Book() {
-
+  const navigate = useNavigate();
   const bookingData = useSelector((state) => state.app.bookingData);
+  const distance = bookingData.distance;
+  const time = bookingData.time;
 
-  const [distance, setDistance] = useState(0);
-  const [time, setTime] = useState(0);
-
-  const prevPickup = useRef("");
-  const prevDrop = useRef("");
-
-  // ✅ Load saved values on refresh
   useEffect(() => {
-    const savedData = JSON.parse(localStorage.getItem("rideMeta"));
-
-    if (savedData) {
-      setDistance(savedData.distance);
-      setTime(savedData.time);
-      prevPickup.current = savedData.pickup;
-      prevDrop.current = savedData.drop;
+    if (!bookingData.pickupLocation || !bookingData.selectedDestination) {
+      navigate("/home");
     }
   }, []);
-
-  // ✅ Generate ONLY when pickup or drop changes
-  useEffect(() => {
-    const pickup = bookingData.pickupLocation;
-    const drop = bookingData.selectedDestination;
-
-    if (
-      pickup &&
-      drop &&
-      (pickup !== prevPickup.current || drop !== prevDrop.current)
-    ) {
-      const km = (Math.random() * 14 + 1).toFixed(2);
-      const speed = Math.floor(Math.random() * 60) + 20;  // kmph
-      const minutes = Math.round((km / speed) * 60);  // min
-
-      // const newTime = `${minutes} mins`;
-
-      setDistance(km);
-      setTime(minutes);
-
-
-      // ✅ Save to localStorage
-      localStorage.setItem(
-        "rideMeta",
-        JSON.stringify({
-          pickup,
-          drop,
-          distance: km,
-          time: minutes,
-        })
-      );
-
-      prevPickup.current = pickup;
-      prevDrop.current = drop;
-    }
-  }, [bookingData.pickupLocation, bookingData.selectedDestination]);
 
   return (
     <>
@@ -102,8 +57,22 @@ function Book() {
           </div>
         )}
       </div>
-      <Vehicles distance={distance} />
+      <Vehicles />
       <Payment />
+
+      {/* Button */}
+      <div className="relative z-20 max-w-md mx-auto p-4 space-y-4 bg-white rounded-lg shadow-lg my-1">
+        <button className={`w-full mt-4 py-3 bg-green-600 text-white font-semibold rounded-lg 
+        shadow-md hover:bg-green-700 active:scale-95 transition z-100 relative
+        disabled:bg-gray-500`}
+          disabled={!bookingData.selectedVehicle}
+          onClick={() => {
+            navigate("/active");
+          }}>
+          Confirm Booking
+        </button>
+      </div>
+
     </>
 
 

@@ -11,7 +11,7 @@ const vehiclesTemplate = [
   { name: "XL", description: "Group up to 6", seats: 6, eta: "8 min", icon: "🚐", basePrice: 500, perkm: 15 },
 ];
 
-function Vehicles({ distance }) {
+function Vehicles() {
   const dispatch = useDispatch();
   // const [selectedVehicle, setSelectedVehicle] = useState(null);
   // const [prevLocations, setPrevLocations] = useState({ pickup: "", drop: "" }); // Not needed, probably, we can directly use reduct location
@@ -22,10 +22,12 @@ function Vehicles({ distance }) {
 
   const { pickupLocation: pickup,
     selectedDestination: drop,
-    selectedVehicle
+    selectedVehicle,
+    distance
   } = useSelector((state) => state.app.bookingData);
   // const storedVehicles = useSelector((state) => state.app.vehiclePrices || []);
 
+  console.log("vehickes", distance, pickup, drop, selectedVehicle);
   let vehicles = vehiclesTemplate.map((v) => {
     return {
       ...v,

@@ -48,12 +48,6 @@ function Payment() {
         </div>
       </div>
 
-
-      {/* Button */}
-      <button className="w-full mt-4 py-3 bg-green-600 text-white font-semibold rounded-lg shadow-md hover:bg-green-700 active:scale-95 transition z-100 relative">
-        Confirm Booking
-      </button>
-
     </div >
   );
 }
