@@ -13,15 +13,15 @@ function Home() {
 
   return (
     <>
-      <div className="w-full max-w-md mx-auto p-4 rounded-md flex my-6 space-y-3">
-        <p className="text-sm font-semibold text-gray-800">
-          Good Evening
-        </p>
-        <p className="text-md text-gray-700">
-          {name || "Guest"}
-        </p>
+      <div className="w-full max-w-md mx-auto p-4 rounded-md flex my-6 space-y-3 justify-between">
+        <div>
+          <p className="text-sm font-semibold text-gray-800">Good Evening</p>
+          <p className="text-2xl text-gray-700">
+            {name || "Guest"}
+          </p>
+        </div>
 
-        <div className="flex items-center gap-1 text-lg font-semibold text-green-600">
+        <div className="flex items-center gap-1 text-2xl font-semibold text-green-600">
           <IndianRupee size={18} />
           {walletBalance}
         </div>

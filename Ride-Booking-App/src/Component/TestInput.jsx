@@ -8,7 +8,6 @@ function ControlledInput() {
   const [controlled_value, setInputValue] = useState("");
 
   const handleChange = (e) => {
-    console.log("getting change value", e.target.value);
     setInputValue(e.target.value);
   }
 

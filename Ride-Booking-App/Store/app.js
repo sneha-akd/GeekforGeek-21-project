@@ -1,6 +1,13 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { v4 as uuidv4 } from "uuid";
 
+export const RIDE_COMPLETED = "Completed";
+export const RIDE_CANCELLED = "Cancelled";
+export const RIDE_VEHICLE_ECONOMY = "Economy";
+export const RIDE_VEHICLE_COMFORT = "Comfort";
+export const RIDE_VEHICLE_PREMIUM = "Premium";
+export const RIDE_VEHICLE_XL = "XL";
+export const RIDE_PAYMENT_WALLET = "wallet";
 
 const initialState = {
   savedPlaces: [
@@ -13,8 +20,9 @@ const initialState = {
     pickupLocation: "",
     distance: 0,
     selectedVehicle: null,
-    paymentMode: "wallet",
+    paymentMode: RIDE_PAYMENT_WALLET,
     time: 0,
+    cost: 0,
   },
   vehiclePrices: [],
   userStats: { rating: 4.8, rides: 47, saved: 2.5 },
@@ -22,19 +30,22 @@ const initialState = {
     name: "Sneha Borkar",
     email: "borkar3232@gmail.com",
     phoneNumber: "7378895464",
-    walletBalance: 0,
+    walletBalance: 500,
   },
 
-  history: {
-
-  }
+  history: [
+    { vehicle: RIDE_VEHICLE_ECONOMY, pickup: "Lokhanwala Complex", dropoff: "Viviana Mall", date: "2026-01-26", distance: 20, rating: 5, cost: 159, status: RIDE_COMPLETED },
+    { vehicle: RIDE_VEHICLE_COMFORT, pickup: "Marine Drive", dropoff: "Gharkopar", date: "2026-01-12", distance: 11, rating: undefined, cost: undefined, status: RIDE_CANCELLED },
+    { vehicle: RIDE_VEHICLE_XL, pickup: "Pink Palace", dropoff: "Amber Palace", date: "2026-01-14", distance: 33, rating: 3, cost: 780, status: RIDE_COMPLETED },
+    { vehicle: RIDE_VEHICLE_PREMIUM, pickup: "DLF Club", dropoff: "Red Fort", date: "2026-01-02", distance: 50, rating: 5, cost: 886, status: RIDE_COMPLETED }
+  ]
 };
 
 const getDistanceTime = () => {
   const km = (Math.random() * 14 + 1).toFixed(2);
   const speed = Math.floor(Math.random() * 60) + 20;  // kmph
   const minutes = Math.round((km / speed) * 60);  // min
-  return { distance: km, time: minutes }
+  return { distance: parseFloat(km), time: minutes }
 }
 
 export const appSlice = createSlice({
@@ -78,7 +89,6 @@ export const appSlice = createSlice({
       state.savedPlaces = filteredPlaces;
     },
     setDestination: (state, action) => {
-      console.log("setting destination location", action.payload)
       state.bookingData.selectedDestination = action.payload;
 
       if (state.bookingData.pickupLocation && state.bookingData.pickupLocation.length > 0) {
@@ -88,7 +98,6 @@ export const appSlice = createSlice({
       }
     },
     setPickupLocation: (state, action) => {
-      console.log("setting pickup location", action.payload)
       state.bookingData.pickupLocation = action.payload;
 
       if (state.bookingData.selectedDestination && state.bookingData.selectedDestination.length > 0) {
@@ -101,7 +110,9 @@ export const appSlice = createSlice({
       state.vehiclePrices = action.payload;
     },
     setSelectedVehicle: (state, action) => {
-      state.bookingData.selectedVehicle = action.payload;
+      const { name, price } = action.payload;
+      state.bookingData.selectedVehicle = name;
+      state.bookingData.cost = price;
     },
     setPaymentMode: (state, action) => {
       state.bookingData.paymentMode = action.payload;
@@ -109,10 +120,31 @@ export const appSlice = createSlice({
     clearBookingData: (state, _action) => {
       state.bookingData = { ...initialState.bookingData };
     },
-    finishRide: (state, _action) => {
+    finishRide: (state, action) => {
+      state.history.push({
+        vehicle: state.bookingData.vehicle,
+        pickup: state.bookingData.pickupLocation,
+        dropoff: state.bookingData.selectedDestination,
+        date: new Date().toLocaleDateString(),
+        distance: state.bookingData.distance,
+        rating: action.payload,
+        cost: state.bookingData.cost,
+        status: RIDE_COMPLETED
+      });
+      state.userData.walletBalance = state.userData.walletBalance - state.bookingData.cost;
       state.bookingData = { ...initialState.bookingData };
     },
     cancelRide: (state, action) => {
+      state.history.push({
+        vehicle: state.bookingData.vehicle,
+        pickup: state.bookingData.pickupLocation,
+        dropoff: state.bookingData.selectedDestination,
+        date: new Date().toLocaleDateString(),
+        distance: 0,
+        rating: undefined,
+        cost: 0,
+        status: RIDE_CANCELLED
+      })
       state.bookingData = { ...initialState.bookingData };
     }
   },

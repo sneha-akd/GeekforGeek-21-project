@@ -46,17 +46,15 @@ const UpdateWalletBalance = () => {
         </button>
       </div>
 
-
-
       {/* Amount Grid */}
       {isAdd && <> <div className="grid grid-cols-4 gap-4  ">
-        {[10, 25, 40, 50].map((amt) => (
+        {[100, 500, 2000, 5000].map((amt) => (
           <button onClick={() => setaddBalance(amt)}
             key={amt}
             className="rounded-md border border-gray-300 bg-white py-2 text-sm font-medium text-gray-800
                        hover:bg-gray-200 hover:border-gray-500 transition"
           >
-            ${amt}
+            ₹{amt}
           </button>
         ))}
       </div>

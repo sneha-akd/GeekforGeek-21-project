@@ -4,10 +4,12 @@ import { useEffect, useState, useRef } from "react";
 import Vehicles from "../Component/Vehicles";
 import Payment from "../Component/Payment";
 import { useNavigate } from "react-router-dom";
+import { RIDE_PAYMENT_WALLET } from "../../Store/app";
 
 function Book() {
   const navigate = useNavigate();
   const bookingData = useSelector((state) => state.app.bookingData);
+  const balance = useSelector(state => state.app.userData.walletBalance);
   const distance = bookingData.distance;
   const time = bookingData.time;
 
@@ -62,16 +64,17 @@ function Book() {
 
       {/* Button */}
       <div className="relative z-20 max-w-md mx-auto p-4 space-y-4 bg-white rounded-lg shadow-lg my-1">
-        <button className={`w-full mt-4 py-3 bg-green-600 text-white font-semibold rounded-lg 
+        {bookingData.paymentMode === RIDE_PAYMENT_WALLET && bookingData.cost > balance && <p className="text-red-400">Please recharge your wallet first!</p>}
+        <button className={`w-full py-3 bg-green-600 text-white font-semibold rounded-lg 
         shadow-md hover:bg-green-700 active:scale-95 transition z-100 relative
-        disabled:bg-gray-500`}
-          disabled={!bookingData.selectedVehicle}
+        disabled:bg-gray-500 ${bookingData.paymentMode === RIDE_PAYMENT_WALLET && bookingData.cost > balance && "disabled:bg-red-100"}`}
+          disabled={!bookingData.selectedVehicle || (bookingData.paymentMode === RIDE_PAYMENT_WALLET && bookingData.cost > balance)}
           onClick={() => {
             navigate("/active");
           }}>
           Confirm Booking
         </button>
-      </div>
+      </div >
 
     </>
 

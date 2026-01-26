@@ -27,7 +27,6 @@ function Vehicles() {
   } = useSelector((state) => state.app.bookingData);
   // const storedVehicles = useSelector((state) => state.app.vehiclePrices || []);
 
-  console.log("vehickes", distance, pickup, drop, selectedVehicle);
   let vehicles = vehiclesTemplate.map((v) => {
     return {
       ...v,
@@ -43,7 +42,7 @@ function Vehicles() {
         vehicles.map((vehicle) => (
           <div
             key={vehicle.name}
-            onClick={() => dispatch(setSelectedVehicle(vehicle.name))}
+            onClick={() => dispatch(setSelectedVehicle({ name: vehicle.name, price: vehicle.price }))}
             className={`flex justify-between items-center p-3 border rounded-lg cursor-pointer hover:bg-gray-50 transition
             ${selectedVehicle === vehicle.name ? "border-black bg-gray-100" : "border-gray-200"}`}
           >
