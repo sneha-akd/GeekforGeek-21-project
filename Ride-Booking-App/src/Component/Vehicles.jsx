@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { setVehiclePrices } from "../../Store/app";
+import { setVehiclePrices, setSelectedVehicle } from "../../Store/app";
 
 const vehiclesTemplate = [
   { name: "Economy", description: "Affordable rides", seats: 4, eta: "3 min", icon: "🚗", basePrice: 100, perkm: 8 },
@@ -13,11 +13,17 @@ const vehiclesTemplate = [
 
 function Vehicles({ distance }) {
   const dispatch = useDispatch();
-  const [selectedVehicle, setSelectedVehicle] = useState(null);
+  // const [selectedVehicle, setSelectedVehicle] = useState(null);
   // const [prevLocations, setPrevLocations] = useState({ pickup: "", drop: "" }); // Not needed, probably, we can directly use reduct location
 
-  const pickup = useSelector((state) => state.app.bookingData.pickupLocation);
-  const drop = useSelector((state) => state.app.bookingData.selectedDestination);
+  // const pickup = useSelector((state) => state.app.bookingData.pickupLocation);
+  // const drop = useSelector((state) => state.app.bookingData.selectedDestination);
+  // const selectedVehicle = useSelector((state) => state.app.bookingData.selectedVehicle);
+
+  const { pickupLocation: pickup,
+    selectedDestination: drop,
+    selectedVehicle
+  } = useSelector((state) => state.app.bookingData);
   // const storedVehicles = useSelector((state) => state.app.vehiclePrices || []);
 
   let vehicles = vehiclesTemplate.map((v) => {
@@ -35,7 +41,7 @@ function Vehicles({ distance }) {
         vehicles.map((vehicle) => (
           <div
             key={vehicle.name}
-            onClick={() => setSelectedVehicle(vehicle.name)}
+            onClick={() => dispatch(setSelectedVehicle(vehicle.name))}
             className={`flex justify-between items-center p-3 border rounded-lg cursor-pointer hover:bg-gray-50 transition
             ${selectedVehicle === vehicle.name ? "border-black bg-gray-100" : "border-gray-200"}`}
           >
@@ -59,12 +65,6 @@ function Vehicles({ distance }) {
         <p className="text-gray-500 text-sm text-center">
           Enter pickup and drop locations to see prices
         </p>
-      )}
-
-      {selectedVehicle && (
-        <button className="w-full bg-black text-white py-3 rounded-lg mt-4 hover:bg-gray-800 transition">
-          Confirm {selectedVehicle}
-        </button>
       )}
     </div>
   );

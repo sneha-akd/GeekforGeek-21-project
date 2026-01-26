@@ -12,6 +12,8 @@ const initialState = {
     selectedDestination: "",
     pickupLocation: "",
     distance: 0,
+    selectedVehicle: null,
+    paymentMode: null,
   },
   vehiclePrices: [],
   userStats: { rating: 4.8, rides: 47, saved: 2.5 },
@@ -78,7 +80,12 @@ export const appSlice = createSlice({
     setVehiclePrices: (state, action) => {
       state.vehiclePrices = action.payload;
     },
-
+    setSelectedVehicle: (state, action) => {
+      state.bookingData.selectedVehicle = action.payload;
+    },
+    setPaymentMode: (state, action) => {
+      state.bookingData.paymentMode = action.payload;
+    },
   },
 });
 
@@ -91,7 +98,9 @@ export const {
   deleteSavedPlaces,
   setDestination,
   setPickupLocation,
-  setVehiclePrices
+  setVehiclePrices,
+  setSelectedVehicle,
+  setPaymentMode
 } = appSlice.actions;
 
 export default appSlice.reducer;
