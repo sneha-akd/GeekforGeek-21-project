@@ -23,7 +23,7 @@ function Home() {
 
         <div className="flex items-center gap-1 text-2xl font-semibold text-green-600">
           <IndianRupee size={18} />
-          {walletBalance}
+          {walletBalance.toFixed(2)}
         </div>
       </div>
 

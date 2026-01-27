@@ -38,7 +38,7 @@ const UpdateWalletBalance = () => {
       <div className="flex items-center justify-between">
         <div className="text-3xl font-semibold mb-4 flex items-center gap-1">
           <IndianRupee className="w-6 h-6 text-neutral-400" />
-          {walletBalance}
+          {walletBalance.toFixed(2)}
         </div>
 
         <button onClick={handleadd} className="rounded-md bg-green-600 px-4 py-2 text-sm font-medium text-white hover:bg-gray-400 transition">

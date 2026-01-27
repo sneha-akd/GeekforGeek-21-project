@@ -101,7 +101,7 @@ function History() {
 
       {/** History Card List */}
       <div className="flex flex-col gap-3">
-        {history.filter((ride) => !filter || ride.status === filter).map((ride, index) => {
+        {history.filter((ride) => !filter || ride.status === filter).reverse().map((ride, index) => {
           return <HistoryCard ride={ride} key={index} />
         })}
       </div>
