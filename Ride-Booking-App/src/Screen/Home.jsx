@@ -2,8 +2,8 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import { IndianRupee } from "lucide-react";
-import Pickup from "../Component/pickup";
 import SavedLocation from "../Component/SavedLocation";
+import Pickup from "../Component/Pickup";
 
 function Home() {
   const { name, walletBalance } = useSelector(
@@ -28,7 +28,6 @@ function Home() {
       </div>
 
       <Pickup />
-
       <SavedLocation />
     </>
   );
