@@ -117,7 +117,7 @@ export const appSlice = createSlice({
     setPaymentMode: (state, action) => {
       state.bookingData.paymentMode = action.payload;
     },
-    clearBookingData: (state, _action) => {
+    clearBookingData: (state) => {
       state.bookingData = { ...initialState.bookingData };
     },
     finishRide: (state, action) => {
@@ -134,7 +134,7 @@ export const appSlice = createSlice({
       state.userData.walletBalance = state.userData.walletBalance - state.bookingData.cost;
       state.bookingData = { ...initialState.bookingData };
     },
-    cancelRide: (state, action) => {
+    cancelRide: (state) => {
       state.history.push({
         vehicle: state.bookingData.vehicle,
         pickup: state.bookingData.pickupLocation,

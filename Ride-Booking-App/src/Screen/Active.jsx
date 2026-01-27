@@ -138,7 +138,7 @@ const Active = () => {
     }, 5000);
 
     return () => { clearTimeout(timer); }
-  }, []);
+  }, [navigate, distance]);
 
   useEffect(() => {
     if (mode === INCOMING) {
@@ -151,7 +151,7 @@ const Active = () => {
     } else {
       // do nothing
     }
-  }, [mode]);
+  }, [mode, time]);
 
   // modes are incoming, inprogress and done
   return (<>

@@ -1,8 +1,7 @@
 
 
-import { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { setVehiclePrices, setSelectedVehicle } from "../../Store/app";
+import { setSelectedVehicle } from "../../Store/app";
 
 const vehiclesTemplate = [
   { name: "Economy", description: "Affordable rides", seats: 4, eta: "3 min", icon: "🚗", basePrice: 100, perkm: 8 },

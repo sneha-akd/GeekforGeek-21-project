@@ -1,6 +1,6 @@
 
-import { useDispatch, useSelector } from "react-redux";
-import { useEffect, useState, useRef } from "react";
+import { useSelector } from "react-redux";
+import { useEffect } from "react";
 import Vehicles from "../Component/Vehicles";
 import Payment from "../Component/Payment";
 import { useNavigate } from "react-router-dom";
@@ -17,7 +17,7 @@ function Book() {
     if (!bookingData.pickupLocation || !bookingData.selectedDestination) {
       navigate("/home");
     }
-  }, []);
+  }, [navigate]);
 
   return (
     <>
