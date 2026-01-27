@@ -10,8 +10,8 @@ const userDetails = [
     username: "borkar3232",
     name: "Sneha",
     email: "test@gmail.com",
-    password: "$2b$10$cJcfjvJeMGNgGVP.xpk/PeWIbl4gGycI.ehE3ZNlMmOYl.ArFczHe",
-    cart: [],
+    password: "$2b$10$JOfJtu4e2o1U986TNDNADOlT76knVLN06aAKi7aSugIqJbgUfCARS",
+    cart: []
   },
 ];
 
