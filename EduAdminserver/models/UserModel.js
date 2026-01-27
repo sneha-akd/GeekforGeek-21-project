@@ -1,7 +1,6 @@
-import mongoose, { model } from "mongoose";
-const { Schema } = mongoose;
+import mongoose from "mongoose";
 
-const userSchema = new Schema({
+const userSchema = new mongoose.Schema({
   username: { type: String, unique: true, required: true },
   password: String,
   role: { type: String, enum: ["admin", "user"], default: "user" },
@@ -14,10 +13,11 @@ userSchema.statics.findUser = async (username) => {
 };
 
 userSchema.statics.createUser = async (userdata) => {
+  console.log("Create user called", userdata);
   const userData = await UserModel.create(userdata);
   return userData;
 };
 
-const UserModel = model("User", userSchema);
+const UserModel = mongoose.model("User", userSchema);
 
 export default UserModel;

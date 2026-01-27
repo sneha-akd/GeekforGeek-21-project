@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { signup, login, logout, resetPassword } from "../controllers/userController";
+import { signup, login, logout, resetPassword } from "../controllers/userController.js";
 const userRouter = Router();
 
 userRouter.post("/signup", signup);

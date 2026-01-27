@@ -1,4 +1,4 @@
-const { verifyToken } = require("../utils/jwtUtil");
+import { verifyToken } from "../utils/jwtUtil.js";
 
 const authController = (req, res, next) => {
   const { authToken } = req.cookies;
@@ -8,4 +8,4 @@ const authController = (req, res, next) => {
   next();
 };
 
-module.exports = authController;
+export default authController;

@@ -1,17 +1,15 @@
+import "dotenv/config";
 import express, { json } from "express";
-import { config } from "dotenv";
-config();
-import "./dbConnection";
-import router from "./router";
+import connectDb from "./utils/dbConnection.js";
+import cookieParser from "cookie-parser";
+import authController from "./controllers/authController.js";
+import userRouter from "./routes/userRouter.js";
+import courseRouter from "./routes/courseRouter.js";
+import rbacController from "./controllers/rbacController.js";
+import adminRouter from "./routes/adminRouter.js";
 
 const app = express();
 const port = 4000;
-import cookieParser from "cookie-parser";
-import authController from "./controllers/authController";
-import userRouter from "./routes/userRouter";
-import courseRouter from "./routes/courseRouter";
-import rbacController from "./controllers/rbacController";
-import adminRouter from "./routes/adminRouter";
 
 app.use(cookieParser());
 app.use(json());
@@ -41,7 +39,11 @@ app.use((err, req, res, next) => {
 // RBAC - Role Based Access Control
 //app.use("/admin",authController ,adminRouter);
 
-app.listen(port, () => {
-  console.clear();
-  console.log(`Example app listening on port ${port}!`);
+connectDb().then((e) => {
+  console.log("connect db");
+
+  app.listen(port, (e) => {
+    if (e) console.error("could not run server", e);
+    else console.log(`Example app listening on port :${port}`)
+  })
 });

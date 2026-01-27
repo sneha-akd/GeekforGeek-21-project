@@ -6,6 +6,6 @@ const sanitizeUserData = (user) => {
   }
 };
 
-export default {
+export {
   sanitizeUserData,
 };

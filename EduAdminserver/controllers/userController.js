@@ -1,8 +1,8 @@
-const UserModel = require("../models/UserModel");
-const { sanitizeUserData } = require("../utils");
-const { generateToken } = require("../utils/jwtUtil");
-const { verifyPassword, genPasswordHash } = require("../utils/passwordUtils");
-const { generateQRcode, verifyOTP } = require("../utils/totpUtil");
+import UserModel from "../models/UserModel.js";
+import { sanitizeUserData } from "../utils/utils.js";
+import { generateToken } from "../utils/jwtUtil.js";
+import { verifyPassword, genPasswordHash } from "../utils/passwordUtils.js";
+import { generateQRcode, verifyOTP } from "../utils/totpUtil.js";
 
 const login = async (req, res) => {
   const { username, password } = req.body;
@@ -78,7 +78,7 @@ const resetPassword = async (req, res, next) => {
   }
 };
 
-module.exports = {
+export {
   login,
   signup,
   logout,

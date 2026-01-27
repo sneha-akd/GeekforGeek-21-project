@@ -1,9 +1,8 @@
-import mongoose, { model } from "mongoose";
-const { Schema } = mongoose;
+import mongoose from "mongoose";
 
-const purchaseSchema = new Schema({
-  userId: { type: Schema.Types.ObjectId, ref: "User" },
-  courseId: { type: Schema.Types.ObjectId, ref: "Course" },
+const purchaseSchema = new mongoose.Schema({
+  userId: { type: mongoose.Schema.Types.ObjectId, ref: "User" },
+  courseId: { type: mongoose.Schema.Types.ObjectId, ref: "Course" },
   refunded: { type: Boolean, default: false },
   purchaseDate: { type: Date, default: Date.now },
 });
@@ -59,6 +58,6 @@ purchaseSchema.statics.getTopSellingCourses = async (limit = 3) => {
   ]);
 };
 
-const PurchaseModel = model("Purchase", purchaseSchema);
+const PurchaseModel = mongoose.model("Purchase", purchaseSchema);
 
 export default PurchaseModel;

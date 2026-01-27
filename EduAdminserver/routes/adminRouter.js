@@ -1,11 +1,12 @@
 import { Router } from "express";
-import { createCourse, updateCourse, deleteCourse } from "../models/CourseModel";
-import { refundCourse, getTopSellingCourses } from "../models/PurchaseModel";
+import CourseModel from "../models/CourseModel.js";
+import PurchaseModel from "../models/PurchaseModel.js";
+
 const adminRouter = Router();
 
 // create new course
 adminRouter.post("/createCourse", async (req, res) => {
-  const data = await createCourse(req.body);
+  const data = await CourseModel.createCourse(req.body);
   res.send({
     message: "Course created successfully!!!",
     data: data,
@@ -15,7 +16,7 @@ adminRouter.post("/createCourse", async (req, res) => {
 // update existing course
 adminRouter.put("/updateCourse/:courseId", async (req, res) => {
   const { courseId } = req.params;
-  const data = await updateCourse(courseId, req.body);
+  const data = await CourseModel.updateCourse(courseId, req.body);
   res.send({
     message: "Course updated successfully!!!",
     data: data,
@@ -24,7 +25,7 @@ adminRouter.put("/updateCourse/:courseId", async (req, res) => {
 
 adminRouter.delete("/deleteCourse/:courseId", async (req, res) => {
   const { courseId } = req.params;
-  const data = await deleteCourse(courseId);
+  const data = await CourseModel.deleteCourse(courseId);
   res.send({
     message: "Course deleted successfully!!!",
     data: data,
@@ -38,7 +39,7 @@ adminRouter.post("/refund", async (req, res) => {
     res.send({ message: "userId and courseId are required!!!" });
     return;
   }
-  const data = await refundCourse({ courseId, userId });
+  const data = await PurchaseModel.refundCourse({ courseId, userId });
   console.log("🚀 ~ data:", data);
   res.send({
     message: "Course refunded successfully!!!",
@@ -48,7 +49,7 @@ adminRouter.post("/refund", async (req, res) => {
 
 adminRouter.get("/get-top-courses", async (req, res) => {
   const { limit = 3 } = req.query;
-  const data = await getTopSellingCourses(parseInt(limit));
+  const data = await PurchaseModel.getTopSellingCourses(parseInt(limit));
   res.send({ data, message: "Top selling courses" });
 });
 

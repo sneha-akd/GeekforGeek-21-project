@@ -11,4 +11,4 @@ const verifyPassword = (password, pwdHash) => {
   return compare(password, pwdHash);
 };
 
-export default { genPasswordHash, verifyPassword };
+export { genPasswordHash, verifyPassword };

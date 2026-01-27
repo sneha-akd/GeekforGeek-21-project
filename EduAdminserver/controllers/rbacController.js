@@ -9,4 +9,4 @@ const rbacController = (requiredRole) => {
   };
 };
 
-module.exports = rbacController;
+export default rbacController;

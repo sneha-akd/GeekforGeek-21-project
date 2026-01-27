@@ -1,11 +1,11 @@
-import { generateSecret, otpauthURL, totp } from "speakeasy";
+import * as speakeasy from 'speakeasy';
 import { toDataURL } from "qrcode";
 
 const encoding = "base32";
 
 const generateQRcode = async (username) => {
-  const { base32: secret } = generateSecret();
-  const url = otpauthURL({
+  const { base32: secret } = speakeasy.generateSecret();
+  const url = speakeasy.otpauthURL({
     secret,
     label: username,
     issuer: "EduAdmin",
@@ -18,7 +18,7 @@ const generateQRcode = async (username) => {
 };
 
 const verifyOTP = (token, secret) => {
-  const verified = totp.verify({
+  const verified = speakeasy.totp.verify({
     secret,
     encoding,
     token,
@@ -26,4 +26,4 @@ const verifyOTP = (token, secret) => {
   return verified;
 };
 
-export default { generateQRcode, verifyOTP };
+export { generateQRcode, verifyOTP };

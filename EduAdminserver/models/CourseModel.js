@@ -1,5 +1,4 @@
-import mongoose, { model } from "mongoose";
-const { Schema } = mongoose;
+import mongoose from "mongoose";
 
 // {
 //     title: "JavaScript Fundamentals",
@@ -7,7 +6,7 @@ const { Schema } = mongoose;
 //     price: 3000
 //   },
 
-const courseSchema = new Schema({
+const courseSchema = new mongoose.Schema({
   title: String,
   description: String,
   price: Number,
@@ -31,6 +30,6 @@ courseSchema.statics.getAll = async (id) => {
   return await CourseModel.find();
 };
 
-const CourseModel = model("Course", courseSchema);
+const CourseModel = mongoose.model("Course", courseSchema);
 
 export default CourseModel;
