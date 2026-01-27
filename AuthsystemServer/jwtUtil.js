@@ -1,19 +1,16 @@
-import { sign, verify } from "jsonwebtoken";
+import jwt from "jsonwebtoken";
 
 const SECRET_KEY = "MY_SECRET_KEY";
 
-const generateToken = (userdata, time = "1h") => {
-  const token = sign(userdata, SECRET_KEY, { expiresIn: time });
-  console.log("🚀 ~ generateToken ~ token:", token);
+export const generateToken = (userdata, time = "1h") => {
+  const token = jwt.sign(userdata, SECRET_KEY, { expiresIn: time });
   return token;
 };
 
-const verifyToken = (token) => {
+export const verifyToken = (token) => {
   if (!token) {
     throw new Error("Token is required for verification");
   }
-  const decoded = verify(token, SECRET_KEY);
+  const decoded = jwt.verify(token, SECRET_KEY);
   return decoded;
 };
-
-export default { generateToken, verifyToken };

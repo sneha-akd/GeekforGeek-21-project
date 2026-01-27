@@ -1,10 +1,10 @@
 import express, { json } from "express";
-import router from "./router";
+import router from "./router.js"
+import cookieParser from "cookie-parser";
+import cartRouter from "./cartRouter.js";
+
 const app = express();
 const port = 4000;
-import cookieParser from "cookie-parser";
-import cartRouter from "./cartRouter";
-import authController from "./authController";
 
 app.use(cookieParser());
 app.use(json());

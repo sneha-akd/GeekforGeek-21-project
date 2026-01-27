@@ -1,16 +1,14 @@
-import jwtUtil from "./jwtUtil";
-const { generateToken } = _default
-import _default from "./passwordUtils";
-const { genPasswordHash, verifyPassword } = _default;
-import { sanitizeUserData } from "./utils";
+import { generateToken } from "./jwtUtil.js";
+import { genPasswordHash, verifyPassword } from "./passwordUtils.js"
+import { sanitizeUserData } from "./utils.js";
 
 import { Router } from "express";
 const router = Router();
 
 const userDetails = [
   {
-    username: "nikhil101",
-    name: "Nikhil",
+    username: "borkar3232",
+    name: "Sneha",
     email: "test@gmail.com",
     password: "$2b$10$cJcfjvJeMGNgGVP.xpk/PeWIbl4gGycI.ehE3ZNlMmOYl.ArFczHe",
     cart: [],
