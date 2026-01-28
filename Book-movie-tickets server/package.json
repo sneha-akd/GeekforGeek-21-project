@@ -2,11 +2,11 @@
   "name": "book-movie-tickets-server",
   "version": "1.0.0",
   "description": "",
-  "main": "models/server.js",
+  "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node  models/server.js",
-    "dev": " nodemon models/server.js"
+    "start": "node  server.js",
+    "dev": " nodemon server.js"
   },
   "keywords": [],
   "author": "",
