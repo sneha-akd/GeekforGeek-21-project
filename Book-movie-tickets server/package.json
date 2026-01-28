@@ -1,0 +1,28 @@
+{
+  "name": "book-movie-tickets-server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "models/server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node  models/server.js",
+    "dev": " nodemon models/server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "dependencies": {
+    "bcrypt": "^6.0.0",
+    "cookie-parser": "^1.4.7",
+    "cors": "^2.8.6",
+    "dotenv": "^17.2.3",
+    "express": "^5.2.1",
+    "jsonwebtoken": "^9.0.3",
+    "mongoose": "^8.21.1",
+    "qrcode": "^1.5.4",
+    "redis": "^5.10.0",
+    "speakeasy": "^2.0.0",
+    "stripe": "^20.2.0"
+  }
+}
