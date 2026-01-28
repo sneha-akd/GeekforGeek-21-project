@@ -16,9 +16,13 @@ const port = process.env.PORT || 3000;
 
 app.use(cookieParser());
 app.use(json());
-// app.use(cors({
-//   origin: "http://localhost:5173",
-// }));
+const corsURL = process.env.CORS_URL ?? false;
+
+if (corsURL) {
+  app.use(cors({
+    origin: corsURL,
+  }));
+}
 
 app.use("/user", userRouter);
 app.use("/shows", router);
