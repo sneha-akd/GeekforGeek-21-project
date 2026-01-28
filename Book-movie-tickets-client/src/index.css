@@ -104,7 +104,7 @@ button:disabled {
 
 .seat-row-grid {
   display: grid;
-  grid-template-columns: repeat(20, 32px);
+  grid-template-columns: repeat(10, 32px);
   gap: 6px;
 }
 
@@ -136,7 +136,7 @@ button:disabled {
 
 .floating-pay {
   position: fixed;
-  top: 20px;
+  bottom: 20px;
   right: 20px;
   z-index: 100;
 }
@@ -176,5 +176,10 @@ button:disabled {
   background-color: gray;
   border-radius : 10px;
   padding: 8px 16px;
+}
 
+.nav-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }

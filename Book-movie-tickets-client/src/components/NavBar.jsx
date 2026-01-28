@@ -11,13 +11,13 @@ const NavBar = ({ user, showLogin, onLogout }) => {
     onLogout();
   }
 
-  return (<>
+  return (<div className='nav-bar'>
     <h1>🎬 Movie Booking</h1>
     <div>
       {!user && <button onClick={handleLogin}>Login</button>}
       {user && <button onClick={handleLogout}>Logout</button>}
     </div>
-  </>)
+  </div>)
 }
 
 export default NavBar
