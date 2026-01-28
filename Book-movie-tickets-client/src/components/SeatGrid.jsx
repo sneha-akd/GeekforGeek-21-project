@@ -33,7 +33,7 @@ export default function SeatGrid({ show, onBack, showLogin }) {
       .then(() => {
         return checkout({ showId: show._id, seats: selected })
       })
-      .then(() => {
+      .then((res) => {
         window.location.href = res.data;
       })
       .catch((error) => {
