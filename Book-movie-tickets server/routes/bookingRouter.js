@@ -13,7 +13,6 @@ bookingRouter.post("/book-seats", async (req, res, next) => {
     const lockedKey = `locked_seats:${showId}`;
     const tempRequestKey = `request_seats:${Date.now()}`;
 
-    console.log("setting new key", tempRequestKey);
     await redisClient.sAdd(tempRequestKey, seats);
     await redisClient.expire(tempRequestKey, 5);
 

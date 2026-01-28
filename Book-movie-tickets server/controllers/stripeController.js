@@ -5,12 +5,12 @@ import ShowModel from "../models/Show.js";
 
 
 // IN DEBUG MODE
-const SUCCESS_URL = "http://localhost:3000/success?session_id={CHECKOUT_SESSION_ID}"
-const CANCEL_URL = "http://localhost:3000/cancel?session_id={CHECKOUT_SESSION_ID}"
+// const SUCCESS_URL = "http://localhost:3000/bookings/success?session_id={CHECKOUT_SESSION_ID}"
+// const CANCEL_URL = "http://localhost:3000/bookings/cancel?session_id={CHECKOUT_SESSION_ID}"
 
 // IN PROD MODE: TODO: Add Render.com url
-// const SUCCESS_URL = "http://localhost:3000/success?session_id={CHECKOUT_SESSION_ID}"
-// const CANCEL_URL = "http://localhost:3000/cancel?session_id={CHECKOUT_SESSION_ID}"
+const SUCCESS_URL = "http://localhost:3000/success?session_id={CHECKOUT_SESSION_ID}"
+const CANCEL_URL = "http://localhost:3000/cancel?session_id={CHECKOUT_SESSION_ID}"
 
 export const createCheckoutSession = async (req, res, next) => {
   try {
@@ -60,7 +60,6 @@ export const createCheckoutSession = async (req, res, next) => {
       success_url: SUCCESS_URL,
       cancel_url: CANCEL_URL,
       metadata: { bookingId: booking._id.toString() },
-      expires_at: Date.now() + 600,
     });
 
     booking.stripeSessionId = session.id;

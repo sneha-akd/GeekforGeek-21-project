@@ -19,7 +19,7 @@ const login = async (req, res) => {
 
   if (isPwdValid) {
     const token = generateToken(userData);
-    res.cookie("authToken", token, { httpOnly: true, maxAge: 3600_000 });
+    res.cookie("authToken", token, { httpOnly: true, maxAge: 3600_000, sameSite: 'Lax' });
 
     res.send({
       message: "Logged in successfully!!!",
