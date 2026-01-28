@@ -9,8 +9,8 @@ import ShowModel from "../models/Show.js";
 // const CANCEL_URL = "http://localhost:3000/bookings/cancel?session_id={CHECKOUT_SESSION_ID}"
 
 // IN PROD MODE: TODO: Add Render.com url
-const SUCCESS_URL = "http://localhost:3000/success?session_id={CHECKOUT_SESSION_ID}"
-const CANCEL_URL = "http://localhost:3000/cancel?session_id={CHECKOUT_SESSION_ID}"
+const SUCCESS_URL = "https://geekforgeek-21-project.onrender.com/?session_id={CHECKOUT_SESSION_ID}"
+const CANCEL_URL = "https://geekforgeek-21-project.onrender.com/"
 
 export const createCheckoutSession = async (req, res, next) => {
   try {

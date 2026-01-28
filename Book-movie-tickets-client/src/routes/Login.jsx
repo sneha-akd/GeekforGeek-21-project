@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from 'react'
 import { useNavigate } from 'react-router';
 import { login, logout } from '../api';
 
-const Login = ({ setUser, hideLogin }) => {
+const Login = ({ setUser, hideLogin, showModal }) => {
   const username = useRef(null);
   const password = useRef(null);
   const [error, setError] = useState(undefined);
@@ -39,14 +39,27 @@ const Login = ({ setUser, hideLogin }) => {
   }
 
   // TODO Make this a modal dialog
-  return (<div>
-    <form onSubmit={handleSubmit}>
-      <input type="text" ref={username} placeholder='User name' autoComplete="username" />
-      <input type="password" ref={password} placeholder='Password' autoComplete="current-password" />
-      <button type="submit">Login</button>
-      <button type="button" onClick={handleCancel}>Cancel</button>
-    </form>
-    <p>{error}</p>
+  return (<div className='modal-dialog' onClick={(e) => {
+    e.stopPropagation();
+    handleCancel();
+  }}>
+    <div className='modal-container' onClick={(e) => {
+      e.stopPropagation();
+    }}>
+      {typeof (showModal) === 'string' && <p>{showModal}</p>}
+      <form onSubmit={handleSubmit} className='form-container'>
+        <input className="form-input" type="text" ref={username} placeholder='User name' autoComplete="username" />
+        <input className="form-input" type="password" ref={password} placeholder='Password' autoComplete="current-password" />
+        <button className="form-input" type="submit">Login</button>
+        <button className="form-input" type="button" onClick={handleCancel}>Cancel</button>
+      </form>
+      {error && <p style={{
+        color: "red",
+        backgroundColor: "gray",
+        borderRadius: 10,
+        padding: "8px 16px"
+      }}>{error}</p>}
+    </div>
   </div>
   )
 }

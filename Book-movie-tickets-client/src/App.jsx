@@ -11,7 +11,7 @@ const getUserfromLocalStorage = () => {
 
 export default function App() {
   const [user, setUser] = useState(getUserfromLocalStorage());
-  const [showModal, setShowModal] = useState(false);
+  const [showModal, setShowModal] = useState(undefined);
 
   useEffect(() => {
     if (user && showModal) {
@@ -34,8 +34,12 @@ export default function App() {
         }} onLogout={() => {
           setUser(undefined);
         }} />
-        {showModal && !user && <Login setUser={setUser} hideLogin={() => setShowModal(false)} />}
-        <Shows />
+        {showModal && !user &&
+          <Login setUser={setUser} hideLogin={() => setShowModal(false)} showModal={showModal} />}
+        <Shows
+          showLogin={(state) => {
+            setShowModal(state);
+          }} />
       </div>
     </>
   );

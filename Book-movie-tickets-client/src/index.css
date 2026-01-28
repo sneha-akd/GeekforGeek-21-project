@@ -140,3 +140,28 @@ button:disabled {
   right: 20px;
   z-index: 100;
 }
+
+.modal-dialog {
+  width: 100dvw;
+  height: 100dvh;
+  background-color: #474747a0;
+  display: flex;
+  margin: auto;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+.modal-container {
+  width: 200px;
+  margin-inline: auto;
+  margin-top: 50px;
+  height: fit-content;
+}
+
+.form-input {
+  width: 100%;
+  margin-top: 7px;
+  padding: 8px 16px;
+  
+}

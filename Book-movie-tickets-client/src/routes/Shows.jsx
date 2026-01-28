@@ -4,7 +4,7 @@ import { getShows } from "../api";
 import ShowGrid from "../components/ShowGrid";
 import SeatGrid from "../components/SeatGrid";
 
-const Shows = () => {
+const Shows = ({ showLogin }) => {
   const [shows, setShows] = useState([]);
   const [selectedShow, setSelectedShow] = useState(null);
 
@@ -25,6 +25,7 @@ const Shows = () => {
         <SeatGrid
           show={selectedShow}
           onBack={() => setSelectedShow(null)}
+          showLogin={showLogin}
         />
       )
     }

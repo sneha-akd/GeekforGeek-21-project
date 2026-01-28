@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { getShowSeats, lockSeats, checkout } from "../api";
 
-export default function SeatGrid({ show, onBack }) {
+export default function SeatGrid({ show, onBack, showLogin }) {
   const [available, setAvailable] = useState([]);
   const [lockedSeats, setLockedSeats] = useState([]);
   const [selected, setSelected] = useState([]);
@@ -23,12 +23,28 @@ export default function SeatGrid({ show, onBack }) {
     );
   };
 
-  const book = async () => {
-    const { data } = (await lockSeats({ showId: show._id, seats: selected })).data;
-    setLockedSeats(prev => [...prev, ...data]);
-    await new Promise(resolve => setTimeout(resolve, 500));
-    const res = await checkout({ showId: show._id, seats: selected });
-    window.location.href = res.data;
+  const book = () => {
+    lockSeats({ showId: show._id, seats: selected })
+      .then((response) => {
+        let { data } = response;
+        setLockedSeats(prev => [...prev, ...data]);
+        return new Promise(resolve => setTimeout(resolve, 500));
+      })
+      .then(() => {
+        return checkout({ showId: show._id, seats: selected })
+      })
+      .then(() => {
+        window.location.href = res.data;
+      })
+      .catch((error) => {
+        console.log("Error on UI", error);
+        if (error.message === "Unauthorized") {
+          // force Login
+          console.log("Forced Login true");
+          showLogin("Need Authorization to continue booking");
+        }
+      });
+    // const { data } = (await lockSeats({ showId: show._id, seats: selected })).data;
   };
 
   const groupedSeats = show.seats.reduce((acc, seat) => {
