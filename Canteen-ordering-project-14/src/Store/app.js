@@ -45,12 +45,12 @@ const getRandomDummyImage = (imglist) => {
 const updateMenuItemImageUrls = (restaurantData) => {
   const updatedRestaurants = restaurantData.map((res) => {
 
-    const updated_menu = res.menu.map((item) => ({ ...item, image_url: getRandomDummyImage(dummyMenuItemImage) }))
+    const updated_menu = res.menuItems.map((item) => ({ ...item, image_url: getRandomDummyImage(dummyMenuItemImage) }))
 
     return {
       ...res,
       image_url: getRandomDummyImage(dummyRestaurantImage),
-      menu: [...updated_menu]
+      menuItems: [...updated_menu]
     }
   })
   return updatedRestaurants;
@@ -73,16 +73,16 @@ export const appSlice = createSlice({
         const restaurantData = state.restaurantData.find(
           (data) => data.id === resId
         );
-        const itemData = restaurantData.menu.find(
+        const itemData = restaurantData.menuItems.find(
           (data) => data.item_id === item_id
         );
         state.cartData.push({
           id: resId,
           restaurantDetails: {
-            name: restaurantData.name,
-            cuisine: restaurantData.cuisine,
-            address: restaurantData.address,
-            image_url: restaurantData.image_url,
+            name: restaurantData.restaurantDetails.name,
+            cuisine: restaurantData.restaurantDetails.cuisine,
+            address: restaurantData.restaurantDetails.address,
+            image_url: restaurantData.restaurantDetails.image_url,
           },
           menuItems: [{ ...itemData, quantity: 1 }],
         });
@@ -97,7 +97,7 @@ export const appSlice = createSlice({
           const restaurantData = state.restaurantData.find(
             (data) => data.id === resId
           );
-          const itemData = restaurantData.menu.find(
+          const itemData = restaurantData.menuItems.find(
             (data) => data.item_id === item_id
           );
           resInCart.menuItems.push({ ...itemData, quantity: 1 });

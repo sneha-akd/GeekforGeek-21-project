@@ -1,0 +1,726 @@
+[
+  {
+    "restaurants": [
+      {
+        "id": "res_001",
+        "rating": 4.5,
+        "restaurantDetails": {
+          "name": "Bella Italia",
+          "cuisine": "Italian",
+          "address": "669 Main St, Food District",
+          "image_url": "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800"
+        },
+        "menuItems": [
+          {
+            "quantity": 1,
+            "item_id": "res_001_m01",
+            "name": "Italian Signature Plate",
+            "price": 35.18,
+            "description": "A delicious Italian Signature Plate made with fresh, locally sourced ingredients.",
+            "image": "https://picsum.photos/seed/res_001_m01/400/300"
+          },
+          {
+            "quantity": 1,
+            "item_id": "res_001_m02",
+            "name": "Spaghetti Carbonara",
+            "price": 28.5,
+            "description": "Classic Roman pasta with creamy sauce, pancetta, and parmesan.",
+            "image": "https://picsum.photos/seed/res_001_m02/400/300"
+          },
+          {
+            "quantity": 1,
+            "item_id": "res_001_m03",
+            "name": "Risotto Milanese",
+            "price": 32.75,
+            "description": "Creamy saffron-infused risotto with Italian white wine.",
+            "image": "https://picsum.photos/seed/res_001_m03/400/300"
+          }
+        ]
+      },
+      {
+        "id": "res_002",
+        "rating": 4.2,
+        "restaurantDetails": {
+          "name": "Dragon Palace",
+          "cuisine": "Chinese",
+          "address": "234 Harbor Lane, Chinatown District",
+          "image_url": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=800"
+        },
+        "menuItems": [
+          {
+            "quantity": 1,
+            "item_id": "res_002_m01",
+            "name": "Kung Pao Chicken",
+            "price": 18.99,
+            "description": "Spicy stir-fried chicken with peanuts, vegetables, and traditional Chinese spices.",
+            "image": "https://picsum.photos/seed/res_002_m01/400/300"
+          },
+          {
+            "quantity": 1,
+            "item_id": "res_002_m02",
+            "name": "Peking Duck",
+            "price": 42.5,
+            "description": "Crispy roasted duck served with thin crepes and sweet bean sauce.",
+            "image": "https://picsum.photos/seed/res_002_m02/400/300"
+          },
+          {
+            "quantity": 1,
+            "item_id": "res_002_m03",
+            "name": "Mapo Tofu",
+            "price": 16.75,
+            "description": "Soft tofu in spicy numbing sauce with ground pork and scallions.",
+            "image": "https://picsum.photos/seed/res_002_m03/400/300"
+          }
+        ]
+      },
+      {
+        "id": "res_003",
+        "rating": 4.7,
+        "restaurantDetails": {
+          "name": "Taj Mahal Restaurant",
+          "cuisine": "Indian",
+          "address": "456 Spice Market, Heritage Quarter",
+          "image_url": "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800"
+        },
+        "menuItems": [
+          {
+            "quantity": 1,
+            "item_id": "res_003_m01",
+            "name": "Butter Chicken Curry",
+            "price": 22.99,
+            "description": "Creamy tomato-based curry with tender chicken pieces and traditional spices.",
+            "image": "https://picsum.photos/seed/res_003_m01/400/300"
+          },
+          {
+            "quantity": 1,
+            "item_id": "res_003_m02",
+            "name": "Tandoori Naan",
+            "price": 8.5,
+            "description": "Crispy bread baked in traditional tandoor oven with garlic and cilantro.",
+            "image": "https://picsum.photos/seed/res_003_m02/400/300"
+          },
+          {
+            "quantity": 1,
+            "item_id": "res_003_m03",
+            "name": "Biryani Rice",
+            "price": 19.75,
+            "description": "Fragrant basmati rice with meat, vegetables, and aromatic spices.",
+            "image": "https://picsum.photos/seed/res_003_m03/400/300"
+          }
+        ]
+      },
+      {
+        "id": "res_004",
+        "rating": 4.8,
+        "restaurantDetails": {
+          "name": "Sakura Sushi Bar",
+          "cuisine": "Japanese",
+          "address": "789 Riverside Ave, Modern District",
+          "image_url": "https://images.unsplash.com/photo-1579584425555-c3ce17fd4351?w=800"
+        },
+        "menuItems": [
+          {
+            "quantity": 1,
+            "item_id": "res_004_m01",
+            "name": "Dragon Roll",
+            "price": 26.5,
+            "description": "Creative sushi roll with shrimp tempura, avocado, and eel sauce.",
+            "image": "https://picsum.photos/seed/res_004_m01/400/300"
+          },
+          {
+            "quantity": 1,
+            "item_id": "res_004_m02",
+            "name": "Salmon Nigiri (6 pieces)",
+            "price": 21.0,
+            "description": "Fresh Atlantic salmon over perfectly seasoned sushi rice.",
+            "image": "https://picsum.photos/seed/res_004_m02/400/300"
+          },
+          {
+            "quantity": 1,
+            "item_id": "res_004_m03",
+            "name": "Miso Soup",
+            "price": 7.5,
+            "description": "Traditional soybean soup with tofu, seaweed, and scallions.",
+            "image": "https://picsum.photos/seed/res_004_m03/400/300"
+          }
+        ]
+      },
+      {
+        "id": "res_005",
+        "rating": 4.3,
+        "restaurantDetails": {
+          "name": "El Mariachi",
+          "cuisine": "Mexican",
+          "address": "321 Fiesta Lane, Latin Quarter",
+          "image_url": "https://images.unsplash.com/photo-1565560017391-1c44e6d90b16?w=800"
+        },
+        "menuItems": [
+          {
+            "quantity": 1,
+            "item_id": "res_005_m01",
+            "name": "Carne Asada Tacos",
+            "price": 17.99,
+            "description": "Grilled marinated beef in corn tortillas with cilantro and onion.",
+            "image": "https://picsum.photos/seed/res_005_m01/400/300"
+          },
+          {
+            "quantity": 1,
+            "item_id": "res_005_m02",
+            "name": "Chiles Rellenos",
+            "price": 24.5,
+            "description": "Roasted poblano peppers stuffed with cheese in ranchero sauce.",
+            "image": "https://picsum.photos/seed/res_005_m02/400/300"
+          },
+          {
+            "quantity": 1,
+            "item_id": "res_005_m03",
+            "name": "Guacamole & Chips",
+            "price": 12.75,
+            "description": "Fresh avocado mash with lime, cilantro, and crispy tortilla chips.",
+            "image": "https://picsum.photos/seed/res_005_m03/400/300"
+          }
+        ]
+      },
+      {
+        "id": "res_006",
+        "rating": 4.6,
+        "restaurantDetails": {
+          "name": "Thai Orchid",
+          "cuisine": "Thai",
+          "address": "567 Temple Road, Southeast Asia Zone",
+          "image_url": "https://images.unsplash.com/photo-1554909811-aea14fcc0ce1?w=800"
+        },
+        "menuItems": [
+          {
+            "quantity": 1,
+            "item_id": "res_006_m01",
+            "name": "Pad Thai",
+            "price": 16.99,
+            "description": "Stir-fried noodles with shrimp, tofu, peanuts, and lime juice.",
+            "image": "https://picsum.photos/seed/res_006_m01/400/300"
+          },
+          {
+            "quantity": 1,
+            "item_id": "res_006_m02",
+            "name": "Green Curry",
+            "price": 20.5,
+            "description": "Aromatic green curry with chicken, bamboo shoots, and basil.",
+            "image": "https://picsum.photos/seed/res_006_m02/400/300"
+          },
+          {
+            "quantity": 1,
+            "item_id": "res_006_m03",
+            "name": "Tom Yum Soup",
+            "price": 14.25,
+            "description": "Spicy and tangy soup with shrimp, lemongrass, and galangal.",
+            "image": "https://picsum.photos/seed/res_006_m03/400/300"
+          }
+        ]
+      },
+      {
+        "id": "res_007",
+        "rating": 4.9,
+        "restaurantDetails": {
+          "name": "Le Petit Boulangerie",
+          "cuisine": "French",
+          "address": "890 Elegant Street, Uptown District",
+          "image_url": "https://images.unsplash.com/photo-1562963528-1b4ee62248e8?w=800"
+        },
+        "menuItems": [
+          {
+            "quantity": 1,
+            "item_id": "res_007_m01",
+            "name": "Beef Bourguignon",
+            "price": 38.99,
+            "description": "Rich beef stew braised in burgundy wine with mushrooms and pearl onions.",
+            "image": "https://picsum.photos/seed/res_007_m01/400/300"
+          },
+          {
+            "quantity": 1,
+            "item_id": "res_007_m02",
+            "name": "Coq au Vin",
+            "price": 34.5,
+            "description": "Chicken braised in red wine with bacon, mushrooms, and onions.",
+            "image": "https://picsum.photos/seed/res_007_m02/400/300"
+          },
+          {
+            "quantity": 1,
+            "item_id": "res_007_m03",
+            "name": "Croissant Jambon",
+            "price": 11.75,
+            "description": "Buttery croissant filled with French ham and Gruyère cheese.",
+            "image": "https://picsum.photos/seed/res_007_m03/400/300"
+          }
+        ]
+      },
+      {
+        "id": "res_008",
+        "rating": 4.4,
+        "restaurantDetails": {
+          "name": "Grazie Pizzeria",
+          "cuisine": "Italian",
+          "address": "432 Wood Oven Lane, Historic District",
+          "image_url": "https://images.unsplash.com/photo-1604068549290-dea0e4a305ca?w=800"
+        },
+        "menuItems": [
+          {
+            "quantity": 1,
+            "item_id": "res_008_m01",
+            "name": "Margherita Pizza",
+            "price": 18.5,
+            "description": "Classic pizza with fresh mozzarella, tomato, and basil on thin crust.",
+            "image": "https://picsum.photos/seed/res_008_m01/400/300"
+          },
+          {
+            "quantity": 1,
+            "item_id": "res_008_m02",
+            "name": "Quattro Formaggi",
+            "price": 22.99,
+            "description": "Four cheese pizza with mozzarella, gorgonzola, fontina, and pecorino.",
+            "image": "https://picsum.photos/seed/res_008_m02/400/300"
+          },
+          {
+            "quantity": 1,
+            "item_id": "res_008_m03",
+            "name": "Tiramisu",
+            "price": 8.99,
+            "description": "Classic Italian dessert with mascarpone, coffee, and cocoa powder.",
+            "image": "https://picsum.photos/seed/res_008_m03/400/300"
+          }
+        ]
+      },
+      {
+        "id": "res_009",
+        "rating": 4.1,
+        "restaurantDetails": {
+          "name": "Kebab House",
+          "cuisine": "Middle Eastern",
+          "address": "145 Bazaar Street, International Market",
+          "image_url": "https://images.unsplash.com/photo-1599599810694-27db2f1b3f7e?w=800"
+        },
+        "menuItems": [
+          {
+            "quantity": 1,
+            "item_id": "res_009_m01",
+            "name": "Lamb Shawarma",
+            "price": 15.99,
+            "description": "Marinated lamb cooked on vertical spit, served in pita with tahini.",
+            "image": "https://picsum.photos/seed/res_009_m01/400/300"
+          },
+          {
+            "quantity": 1,
+            "item_id": "res_009_m02",
+            "name": "Falafel Wrap",
+            "price": 12.5,
+            "description": "Crispy chickpea fritters with hummus, lettuce, and tomato in flatbread.",
+            "image": "https://picsum.photos/seed/res_009_m02/400/300"
+          },
+          {
+            "quantity": 1,
+            "item_id": "res_009_m03",
+            "name": "Baba Ghanoush",
+            "price": 9.75,
+            "description": "Roasted eggplant dip with tahini, garlic, and pomegranate seeds.",
+            "image": "https://picsum.photos/seed/res_009_m03/400/300"
+          }
+        ]
+      },
+      {
+        "id": "res_010",
+        "rating": 4.7,
+        "restaurantDetails": {
+          "name": "Seoul Street Kitchen",
+          "cuisine": "Korean",
+          "address": "678 Asia Boulevard, Modern District",
+          "image_url": "https://images.unsplash.com/photo-1591794776108-9ea46dcc5fbc?w=800"
+        },
+        "menuItems": [
+          {
+            "quantity": 1,
+            "item_id": "res_010_m01",
+            "name": "Bulgogi Beef",
+            "price": 24.99,
+            "description": "Marinated beef grilled tableside with sesame seeds and vegetables.",
+            "image": "https://picsum.photos/seed/res_010_m01/400/300"
+          },
+          {
+            "quantity": 1,
+            "item_id": "res_010_m02",
+            "name": "Bibimbap",
+            "price": 19.5,
+            "description": "Mixed rice bowl with vegetables, egg, and spicy gochujang sauce.",
+            "image": "https://picsum.photos/seed/res_010_m02/400/300"
+          },
+          {
+            "quantity": 1,
+            "item_id": "res_010_m03",
+            "name": "Tteokbokki",
+            "price": 13.25,
+            "description": "Spicy rice cakes in sweet and fiery gochujang sauce.",
+            "image": "https://picsum.photos/seed/res_010_m03/400/300"
+          }
+        ]
+      },
+      {
+        "id": "res_011",
+        "rating": 4.9,
+        "restaurantDetails": {
+          "name": "Steakhouse Prime",
+          "cuisine": "American",
+          "address": "999 Premium Avenue, Downtown District",
+          "image_url": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=800"
+        },
+        "menuItems": [
+          {
+            "quantity": 1,
+            "item_id": "res_011_m01",
+            "name": "Ribeye Steak (16 oz)",
+            "price": 49.99,
+            "description": "Prime grade ribeye steak grilled to perfection with herb butter.",
+            "image": "https://picsum.photos/seed/res_011_m01/400/300"
+          },
+          {
+            "quantity": 1,
+            "item_id": "res_011_m02",
+            "name": "Lobster Tail",
+            "price": 45.5,
+            "description": "Cold water lobster tail with garlic butter and lemon.",
+            "image": "https://picsum.photos/seed/res_011_m02/400/300"
+          },
+          {
+            "quantity": 1,
+            "item_id": "res_011_m03",
+            "name": "Caesar Salad",
+            "price": 14.75,
+            "description": "Fresh romaine, house-made croutons, parmesan, and anchovy dressing.",
+            "image": "https://picsum.photos/seed/res_011_m03/400/300"
+          }
+        ]
+      },
+      {
+        "id": "res_012",
+        "rating": 4.2,
+        "restaurantDetails": {
+          "name": "Pho Vietnam",
+          "cuisine": "Vietnamese",
+          "address": "234 Noodle Alley, Asia District",
+          "image_url": "https://images.unsplash.com/photo-1564380711619-2c3e1e43e9c9?w=800"
+        },
+        "menuItems": [
+          {
+            "quantity": 1,
+            "item_id": "res_012_m01",
+            "name": "Pho Bo",
+            "price": 14.99,
+            "description": "Fragrant beef broth with rice noodles, beef, and fresh herbs.",
+            "image": "https://picsum.photos/seed/res_012_m01/400/300"
+          },
+          {
+            "quantity": 1,
+            "item_id": "res_012_m02",
+            "name": "Banh Mi Sandwich",
+            "price": 11.5,
+            "description": "Crispy Vietnamese baguette with pâté, cold cuts, and pickled vegetables.",
+            "image": "https://picsum.photos/seed/res_012_m02/400/300"
+          },
+          {
+            "quantity": 1,
+            "item_id": "res_012_m03",
+            "name": "Spring Rolls",
+            "price": 9.25,
+            "description": "Fresh rice paper rolls with shrimp, herbs, and peanut dip.",
+            "image": "https://picsum.photos/seed/res_012_m03/400/300"
+          }
+        ]
+      },
+      {
+        "id": "res_013",
+        "rating": 4.5,
+        "restaurantDetails": {
+          "name": "Spain Tapas Bar",
+          "cuisine": "Spanish",
+          "address": "567 Mediterranean Plaza, Cultural Quarter",
+          "image_url": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=800"
+        },
+        "menuItems": [
+          {
+            "quantity": 1,
+            "item_id": "res_013_m01",
+            "name": "Gambas al Ajillo",
+            "price": 19.99,
+            "description": "Shrimp sautéed with garlic, chili, and olive oil.",
+            "image": "https://picsum.photos/seed/res_013_m01/400/300"
+          },
+          {
+            "quantity": 1,
+            "item_id": "res_013_m02",
+            "name": "Paella Valenciana",
+            "price": 28.5,
+            "description": "Saffron rice with chicken, seafood, and saffron.",
+            "image": "https://picsum.photos/seed/res_013_m02/400/300"
+          },
+          {
+            "quantity": 1,
+            "item_id": "res_013_m03",
+            "name": "Jamon Iberico",
+            "price": 22.75,
+            "description": "Premium Spanish cured ham served with crusty bread.",
+            "image": "https://picsum.photos/seed/res_013_m03/400/300"
+          }
+        ]
+      },
+      {
+        "id": "res_014",
+        "rating": 4.3,
+        "restaurantDetails": {
+          "name": "Kebab Central",
+          "cuisine": "Turkish",
+          "address": "789 Istanbul Street, Ethnic District",
+          "image_url": "https://images.unsplash.com/photo-1585238341710-4b0ef20fa9ee?w=800"
+        },
+        "menuItems": [
+          {
+            "quantity": 1,
+            "item_id": "res_014_m01",
+            "name": "Doner Kebab",
+            "price": 16.99,
+            "description": "Seasoned meat cooked on vertical spit with yogurt and vegetables.",
+            "image": "https://picsum.photos/seed/res_014_m01/400/300"
+          },
+          {
+            "quantity": 1,
+            "item_id": "res_014_m02",
+            "name": "Manti",
+            "price": 18.5,
+            "description": "Turkish pasta parcels with meat filling and yogurt sauce.",
+            "image": "https://picsum.photos/seed/res_014_m02/400/300"
+          },
+          {
+            "quantity": 1,
+            "item_id": "res_014_m03",
+            "name": "Baklava",
+            "price": 10.25,
+            "description": "Layers of phyllo dough with pistachios and honey syrup.",
+            "image": "https://picsum.photos/seed/res_014_m03/400/300"
+          }
+        ]
+      },
+      {
+        "id": "res_015",
+        "rating": 4.0,
+        "restaurantDetails": {
+          "name": "Wok Master",
+          "cuisine": "Chinese",
+          "address": "432 Dragon Square, Chinatown District",
+          "image_url": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=800"
+        },
+        "menuItems": [
+          {
+            "quantity": 1,
+            "item_id": "res_015_m01",
+            "name": "Sweet and Sour Pork",
+            "price": 17.99,
+            "description": "Crispy pork in tangy sweet and sour sauce with pineapple.",
+            "image": "https://picsum.photos/seed/res_015_m01/400/300"
+          },
+          {
+            "quantity": 1,
+            "item_id": "res_015_m02",
+            "name": "Chow Mein",
+            "price": 15.5,
+            "description": "Stir-fried noodles with vegetables, chicken, and soy sauce.",
+            "image": "https://picsum.photos/seed/res_015_m02/400/300"
+          },
+          {
+            "quantity": 1,
+            "item_id": "res_015_m03",
+            "name": "Egg Fried Rice",
+            "price": 11.75,
+            "description": "Fluffy jasmine rice fried with eggs, peas, and scallions.",
+            "image": "https://picsum.photos/seed/res_015_m03/400/300"
+          }
+        ]
+      },
+      {
+        "id": "res_016",
+        "rating": 4.6,
+        "restaurantDetails": {
+          "name": "Garden Vegetarian",
+          "cuisine": "Vegetarian",
+          "address": "654 Green Lane, Wellness District",
+          "image_url": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=800"
+        },
+        "menuItems": [
+          {
+            "quantity": 1,
+            "item_id": "res_016_m01",
+            "name": "Buddha Bowl",
+            "price": 16.99,
+            "description": "Organic grains, roasted vegetables, tofu, and tahini dressing.",
+            "image": "https://picsum.photos/seed/res_016_m01/400/300"
+          },
+          {
+            "quantity": 1,
+            "item_id": "res_016_m02",
+            "name": "Vegetable Stir Fry",
+            "price": 14.5,
+            "description": "Mixed seasonal vegetables with ginger-garlic sauce and sesame.",
+            "image": "https://picsum.photos/seed/res_016_m02/400/300"
+          },
+          {
+            "quantity": 1,
+            "item_id": "res_016_m03",
+            "name": "Hummus Plate",
+            "price": 12.25,
+            "description": "Creamy hummus with falafel, olives, and pita bread.",
+            "image": "https://picsum.photos/seed/res_016_m03/400/300"
+          }
+        ]
+      },
+      {
+        "id": "res_017",
+        "rating": 3.9,
+        "restaurantDetails": {
+          "name": "Burger Barn",
+          "cuisine": "American",
+          "address": "321 Main Street, Downtown District",
+          "image_url": "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=800"
+        },
+        "menuItems": [
+          {
+            "quantity": 1,
+            "item_id": "res_017_m01",
+            "name": "Classic Cheeseburger",
+            "price": 13.99,
+            "description": "Juicy beef patty with cheddar, lettuce, tomato, and special sauce.",
+            "image": "https://picsum.photos/seed/res_017_m01/400/300"
+          },
+          {
+            "quantity": 1,
+            "item_id": "res_017_m02",
+            "name": "Bacon Cheeseburger",
+            "price": 15.5,
+            "description": "Double patty with crispy bacon, Swiss cheese, and caramelized onions.",
+            "image": "https://picsum.photos/seed/res_017_m02/400/300"
+          },
+          {
+            "quantity": 1,
+            "item_id": "res_017_m03",
+            "name": "Crispy Fries",
+            "price": 7.75,
+            "description": "Hand-cut potatoes fried until golden and served with sea salt.",
+            "image": "https://picsum.photos/seed/res_017_m03/400/300"
+          }
+        ]
+      },
+      {
+        "id": "res_018",
+        "rating": 4.4,
+        "restaurantDetails": {
+          "name": "Pasta Paradise",
+          "cuisine": "Italian",
+          "address": "876 Flavor Street, Food Court",
+          "image_url": "https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9?w=800"
+        },
+        "menuItems": [
+          {
+            "quantity": 1,
+            "item_id": "res_018_m01",
+            "name": "Fettuccine Alfredo",
+            "price": 20.99,
+            "description": "Creamy Alfredo sauce with fettuccine pasta and fresh parmesan.",
+            "image": "https://picsum.photos/seed/res_018_m01/400/300"
+          },
+          {
+            "quantity": 1,
+            "item_id": "res_018_m02",
+            "name": "Lasagna Bolognese",
+            "price": 23.5,
+            "description": "Layers of pasta, meat sauce, and béchamel sauce baked to perfection.",
+            "image": "https://picsum.photos/seed/res_018_m02/400/300"
+          },
+          {
+            "quantity": 1,
+            "item_id": "res_018_m03",
+            "name": "Penne Arrabbiata",
+            "price": 18.75,
+            "description": "Spicy tomato and chili sauce with fresh basil and garlic.",
+            "image": "https://picsum.photos/seed/res_018_m03/400/300"
+          }
+        ]
+      },
+      {
+        "id": "res_019",
+        "rating": 4.8,
+        "restaurantDetails": {
+          "name": "Spice Route",
+          "cuisine": "Indian",
+          "address": "543 Aromatic Avenue, Flavor District",
+          "image_url": "https://images.unsplash.com/photo-1565557623814-dea6fb1d4e3d?w=800"
+        },
+        "menuItems": [
+          {
+            "quantity": 1,
+            "item_id": "res_019_m01",
+            "name": "Tikka Masala",
+            "price": 24.99,
+            "description": "Marinated chicken cooked in tandoor, finished in creamy tomato sauce.",
+            "image": "https://picsum.photos/seed/res_019_m01/400/300"
+          },
+          {
+            "quantity": 1,
+            "item_id": "res_019_m02",
+            "name": "Samosa (3 pieces)",
+            "price": 9.5,
+            "description": "Crispy pastry triangles filled with spiced potatoes and peas.",
+            "image": "https://picsum.photos/seed/res_019_m02/400/300"
+          },
+          {
+            "quantity": 1,
+            "item_id": "res_019_m03",
+            "name": "Paneer Tikka",
+            "price": 18.75,
+            "description": "Marinated cottage cheese cubes grilled with peppers and onions.",
+            "image": "https://picsum.photos/seed/res_019_m03/400/300"
+          }
+        ]
+      },
+      {
+        "id": "res_020",
+        "rating": 4.2,
+        "restaurantDetails": {
+          "name": "Sunrise Cafe",
+          "cuisine": "Breakfast & Brunch",
+          "address": "111 Morning Lane, Cafe District",
+          "image_url": "https://images.unsplash.com/photo-1567521464027-f127ff144326?w=800"
+        },
+        "menuItems": [
+          {
+            "quantity": 1,
+            "item_id": "res_020_m01",
+            "name": "Eggs Benedict",
+            "price": 16.99,
+            "description": "English muffin with Canadian bacon, poached eggs, and hollandaise.",
+            "image": "https://picsum.photos/seed/res_020_m01/400/300"
+          },
+          {
+            "quantity": 1,
+            "item_id": "res_020_m02",
+            "name": "Pancake Stack",
+            "price": 14.5,
+            "description": "Fluffy buttermilk pancakes with maple syrup, butter, and fresh berries.",
+            "image": "https://picsum.photos/seed/res_020_m02/400/300"
+          },
+          {
+            "quantity": 1,
+            "item_id": "res_020_m03",
+            "name": "Avocado Toast",
+            "price": 13.75,
+            "description": "Whole grain toast with smashed avocado, egg, and sprouts.",
+            "image": "https://picsum.photos/seed/res_020_m03/400/300"
+          }
+        ]
+      }
+    ]
+  }
+]

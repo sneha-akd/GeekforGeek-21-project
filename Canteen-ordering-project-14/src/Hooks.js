@@ -8,10 +8,11 @@ export function useGetResaturantData() {
   async function getData() {
     console.log("api called");
     let apiData = await fetch(
-      "https://mocki.io/v1/b0ed27cf-5681-4804-beaa-f5bb7044a3e6"
+      "https://6973175cb5f46f8b58261c61.mockapi.io/api/bookapp/v1/data"
     );
     let jsonData = await apiData.json();
-    dispatch(setRestaurantData(jsonData.restaurants));
+
+    dispatch(setRestaurantData(jsonData[0].restaurants));
   }
 
   useEffect(() => {

@@ -15,7 +15,7 @@ export const dummyImage = [
 ];
 
 const RestaurantCard = ({ data }) => {
-  const { id, name, rating, cuisine, address, image_url } = data || {};
+  const { id, restaurantDetails: { name, cuisine, address }, rating, image_url } = data || {};
   const [image, setImage] = useState(image_url);
 
   function handleError() {

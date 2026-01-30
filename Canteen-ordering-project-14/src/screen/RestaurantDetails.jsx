@@ -42,7 +42,7 @@ const RestaurantDetailas = () => {
       </div>
     );
 
-  const { name, rating, cuisine, address, menu } = restaurantData;
+  const { restaurantDetails: { name, cuisine, address }, menuItems, rating } = restaurantData;
 
   return (
     <div className="min-h-screen bg-white relative">
@@ -79,7 +79,7 @@ const RestaurantDetailas = () => {
         <h3 className="text-xl font-semibold text-gray-800 mb-4">Menu Items</h3>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {menu?.map((item) => {
+          {menuItems?.map((item) => {
             // Randomly pick a dummy image for each menu item
             // const randomImage = dummyImage[Math.floor(Math.random() * dummyImage.length)];
 
@@ -130,7 +130,7 @@ const RestaurantDetailas = () => {
         </div>
 
         {/* Empty State If No Menu */}
-        {menu?.length === 0 && (
+        {menuItems?.length === 0 && (
           <p className="text-center text-gray-500 mt-6">
             No food items available.
           </p>
